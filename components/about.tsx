@@ -1,5 +1,4 @@
 import { Check } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
 
 export const About = () => (
   <div className="w-full py-20 lg:py-40" id="about">

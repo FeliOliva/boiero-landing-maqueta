@@ -1,152 +1,164 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
-import { Menu, MoveRight, X } from "lucide-react";
-import { useState } from "react";
+import { ChevronDown } from "lucide-react";
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import Image from "next/image";
 
 export const Header = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isOpen, setOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+
   const navigationItems = [
+    { title: "Inicio", href: "#home" },
     {
-      title: "Inicio",
-      href: "#home",
-    },
-    {
-      title: "Sobre Nosotros",
-      href: "#about",
-    },
-    {
-      title: "Productos",
-      description: "Conoce nuestra línea completa de productos agropecuarios",
+      title: "Cultivos",
+      href: "#",
       items: [
-        {
-          title: "Productos 1",
-          href: "#product1",
-        },
-        {
-          title: "Productos 2",
-          href: "#products2",
-        },
+        { title: "Cultivo 1", href: "#cultivo1" },
+        { title: "Cultivo 2", href: "#cultivo2" },
       ],
     },
-    {
-      title: "Contacto",
-      href: "#contact",
-    },
-    {
-      title: "Final",
-      href: "#final",
-    },
+    { title: "Sobre nosotros", href: "#about" },
+    { title: "Contacto", href: "#contact" },
   ];
 
-  const [isOpen, setOpen] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="w-full z-40 fixed top-0 left-0 bg-background border-b">
-      <div className="container relative mx-auto min-h-14 flex items-center">
-        {/* Logo/Title - Centered on desktop, left on mobile */}
-        <div className="lg:absolute lg:left-1/2 lg:-translate-x-1/2 lg:transform">
-          <p className="font-semibold text-xl">Boiero Agropecuaria</p>
+    <motion.header
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      className={`w-full z-40 fixed top-0 left-0 transition-all duration-300 ${
+        isScrolled
+          ? "bg-white/10 backdrop-blur-md border-b border-white/20"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="container mx-auto min-h-20 flex items-center justify-between px-4">
+        <div className="flex items-center w-[140px]">
+          <Image
+            src="/logo.jpg"
+            alt="Boiero Logo"
+            width={140}
+            height={46}
+            className="h-auto w-[140px]"
+          />
         </div>
 
-        <NavigationMenu className="hidden lg:flex justify-start w-full">
-          <NavigationMenuList className="flex gap-4 flex-row">
+        {/* Desktop Navigation */}
+        <nav className="hidden lg:flex items-center justify-center flex-1">
+          <div className="flex items-center gap-12">
             {navigationItems.map((item) => (
-              <NavigationMenuItem key={item.title}>
-                {item.href && !item.items ? (
-                  <NavigationMenuLink asChild>
-                    <a href={item.href} className="inline-block">
-                      <Button variant="ghost">{item.title}</Button>
-                    </a>
-                  </NavigationMenuLink>
-                ) : (
-                  <>
-                    <NavigationMenuTrigger className="font-medium text-sm">
-                      {item.title}
-                    </NavigationMenuTrigger>
-                    <NavigationMenuContent className="!w-[450px] p-4">
-                      <div className="flex flex-col lg:grid grid-cols-2 gap-4">
-                        <div className="flex flex-col h-full justify-between">
-                          <div className="flex flex-col">
-                            <p className="text-base">{item.title}</p>
-                            <p className="text-muted-foreground text-sm">
-                              {item.description}
-                            </p>
-                          </div>
-                        </div>
-                        <div className="flex flex-col text-sm h-full justify-end">
-                          {item.items?.map((subItem) => (
-                            <a
-                              href={subItem.href}
-                              key={subItem.title}
-                              className="flex flex-row justify-between items-center hover:bg-muted py-2 px-4 rounded"
-                            >
-                              <span>{subItem.title}</span>
-                              <MoveRight className="w-4 h-4 text-muted-foreground" />
-                            </a>
-                          ))}
-                        </div>
-                      </div>
-                    </NavigationMenuContent>
-                  </>
-                )}
-              </NavigationMenuItem>
-            ))}
-          </NavigationMenuList>
-        </NavigationMenu>
-
-        <Button
-          variant="ghost"
-          onClick={() => setOpen(!isOpen)}
-          className="lg:hidden ml-auto"
-        >
-          {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-        </Button>
-
-        {isOpen && (
-          <div className="absolute top-14 border-t flex flex-col w-full left-0 bg-background shadow-lg py-4 px-3 container gap-8">
-            {navigationItems.map((item) => (
-              <div key={item.title}>
-                <div className="flex flex-col gap-2">
-                  {item.href && !item.items ? (
-                    <a
-                      href={item.href}
-                      className="flex justify-between items-center"
-                      onClick={() => setOpen(false)}
-                    >
-                      <span className="text-lg">{item.title}</span>
-                      <MoveRight className="w-4 h-4 stroke-1 text-muted-foreground" />
-                    </a>
-                  ) : (
-                    <p className="text-lg">{item.title}</p>
-                  )}
-                  {item.items &&
-                    item.items.map((subItem) => (
+              <div
+                key={item.title}
+                className="relative"
+                onMouseEnter={() => setActiveDropdown(item.title)}
+                onMouseLeave={() => setActiveDropdown(null)}
+              >
+                <a
+                  href={item.href}
+                  className={`text-lg font-semibold transition-colors flex items-center gap-1 ${
+                    isScrolled ? "text-black" : "text-black"
+                  } hover:text-[#7FFF00]`}
+                >
+                  {item.title}
+                  {item.items && <ChevronDown className="w-4 h-4" />}
+                </a>
+                {item.items && activeDropdown === item.title && (
+                  <div className="absolute top-full left-0 mt-2 w-48 bg-white/10 backdrop-blur-md border border-white/20 rounded-md shadow-lg py-2">
+                    {item.items.map((subItem) => (
                       <a
                         key={subItem.title}
                         href={subItem.href}
-                        className="flex justify-between items-center"
-                        onClick={() => setOpen(false)}
+                        className="block px-4 py-2 text-sm text-white hover:bg-white/20 transition-colors"
                       >
-                        <span className="text-muted-foreground">
-                          {subItem.title}
-                        </span>
-                        <MoveRight className="w-4 h-4 stroke-1" />
+                        {subItem.title}
                       </a>
                     ))}
-                </div>
+                  </div>
+                )}
               </div>
             ))}
           </div>
+        </nav>
+
+        {/* Mobile Menu Button */}
+        <div className="w-[140px] flex justify-end">
+          <Button
+            variant="ghost"
+            onClick={() => setOpen(!isOpen)}
+            className={`lg:hidden ${
+              isScrolled ? "text-gray-800" : "text-white"
+            }`}
+          >
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              {isOpen ? (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              ) : (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              )}
+            </svg>
+          </Button>
+        </div>
+        {/* Mobile Menu */}
+        {/* Mobile Menu */}
+        {isOpen && (
+          <div className="absolute top-full left-0 right-0 bg-white/10 backdrop-blur-md border-t border-white/20 lg:hidden">
+            <nav className="container mx-auto py-4">
+              {navigationItems.map((item) => (
+                <div key={item.title} className="px-4">
+                  <a
+                    href={item.href}
+                    className="block py-2 text-white hover:text-[#7FFF00] transition-colors"
+                    onClick={() => setOpen(false)}
+                  >
+                    {item.title}
+                  </a>
+                  {item.items && (
+                    <div className="pl-4">
+                      {item.items.map((subItem) => (
+                        <a
+                          key={subItem.title}
+                          href={subItem.href}
+                          className="block py-2 text-white/80 hover:text-[#7FFF00] transition-colors"
+                          onClick={() => setOpen(false)}
+                        >
+                          {subItem.title}
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </nav>
+          </div>
         )}
       </div>
-    </header>
+    </motion.header>
   );
 };

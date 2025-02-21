@@ -2,71 +2,95 @@ import { About } from "@/components/about";
 import { ProductCarousel } from "@/components/product-carousel";
 import { Contact } from "@/components/contact";
 import { Footer } from "@/components/footer";
-import { Homebg } from "@/components/home-bg";
-
+import { Hero } from "@/components/hero";
+import { Header } from "@/components/header";
 export default function Home() {
-  const productsGroup1 = [
+  const categories = [
+    { id: "leguminosas", name: "Cultivos otoñales - leguminosas" },
+    { id: "gramineas", name: "Cultivos otoñales - gramineas" },
+    { id: "vendidos", name: "Más vendidos" },
+  ];
+
+  const products = [
     {
       id: 1,
-      title: "Producto 1",
+      title: "Alfalfa",
       description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste nobis placeat dolorum magni nam repellendus temporibus incidunt dicta repellat, quas distinctio. Cumque deserunt fuga eius animi beatae dolorem sequi saepe.",
+        "Forraje de alta calidad, ideal para la nutrición del ganado y la mejora del suelo.",
       imageUrl: "/semillas_de_girasol.jpg",
+      category: "leguminosas",
     },
     {
       id: 2,
-      title: "Producto 2",
+      title: "Vicia Villosa",
       description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste nobis placeat dolorum magni nam repellendus temporibus incidunt dicta repellat, quas distinctio. Cumque deserunt fuga eius animi beatae dolorem sequi saepe.",
+        "Leguminosa versátil, perfecta para rotación de cultivos y fijación de nitrógeno.",
       imageUrl: "/semillas_de_girasol.jpg",
+      category: "leguminosas",
     },
     {
       id: 3,
-      title: "Producto 3",
+      title: "Vicia Sativa",
       description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste nobis placeat dolorum magni nam repellendus temporibus incidunt dicta repellat, quas distinctio. Cumque deserunt fuga eius animi beatae dolorem sequi saepe.",
+        "Excelente cobertura vegetal y fuente de proteína para alimentación animal.",
       imageUrl: "/semillas_de_girasol.jpg",
+      category: "leguminosas",
     },
-  ];
-
-  const productsGroup2 = [
     {
       id: 4,
-      title: "Producto 3",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste nobis placeat dolorum magni nam repellendus temporibus incidunt dicta repellat, quas distinctio. Cumque deserunt fuga eius animi beatae dolorem sequi saepe.",
+      title: "Avena",
+      description: "Cereal resistente y nutritivo para forraje y grano.",
       imageUrl: "/semillas_de_girasol.jpg",
+      category: "gramineas",
     },
     {
       id: 5,
-      title: "Producto 3",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste nobis placeat dolorum magni nam repellendus temporibus incidunt dicta repellat, quas distinctio. Cumque deserunt fuga eius animi beatae dolorem sequi saepe.",
+      title: "Centeno",
+      description: "Ideal para pastoreo temprano y cobertura invernal.",
       imageUrl: "/semillas_de_girasol.jpg",
+      category: "gramineas",
     },
     {
       id: 6,
-      title: "Producto 3",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste nobis placeat dolorum magni nam repellendus temporibus incidunt dicta repellat, quas distinctio. Cumque deserunt fuga eius animi beatae dolorem sequi saepe.",
+      title: "Cebada",
+      description: "Excelente opción para forraje y producción de grano.",
       imageUrl: "/semillas_de_girasol.jpg",
+      category: "gramineas",
+    },
+    {
+      id: 7,
+      title: "Vendido",
+      description: "Cereal resistente y nutritivo para forraje y grano.",
+      imageUrl: "/semillas_de_girasol.jpg",
+      category: "vendidos",
+    },
+    {
+      id: 8,
+      title: "Vendido 2",
+      description: "Ideal para pastoreo temprano y cobertura invernal.",
+      imageUrl: "/semillas_de_girasol.jpg",
+      category: "vendidos",
+    },
+    {
+      id: 9,
+      title: "Vendido 3",
+      description: "Excelente opción para forraje y producción de grano.",
+      imageUrl: "/semillas_de_girasol.jpg",
+      category: "vendidos",
     },
   ];
 
   return (
-    <div>
-      <Homebg />
+    <div className="bg-[#ccfacc]">
+      <Header />
+      <Hero />
       <About />
       <div id="products" className="py-10">
         <ProductCarousel
-          products={productsGroup1}
-          title="Productos Destacados"
-          id="product1"
-        />
-        <ProductCarousel
-          products={productsGroup2}
-          title="Nuevos Productos"
-          id="products2"
+          products={products}
+          categories={categories}
+          title="Nuestros productos"
+          id="productos"
         />
       </div>
       <Contact />

@@ -8,76 +8,130 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { useState } from "react";
+import Autoplay from "embla-carousel-autoplay";
+import type { CarouselApi } from "@/components/ui/carousel";
 
 interface Product {
   id: number;
   title: string;
   description: string;
   imageUrl: string;
+  category: string;
+}
+
+interface Category {
+  id: string;
+  name: string;
 }
 
 interface ProductCarouselProps {
   products: Product[];
   title: string;
-  id: string; // Nuevo prop para el ID
+  id: string;
+  categories: Category[];
 }
 
 export const ProductCarousel = ({
   products,
   title,
   id,
+  categories,
 }: ProductCarouselProps) => {
+  const [api, setApi] = useState<CarouselApi>();
+  const [currentCategory, setCurrentCategory] = useState(categories[0]?.id);
+
+  // Group products by category
+  const productsByCategory = products.reduce((acc, product) => {
+    if (!acc[product.category]) {
+      acc[product.category] = [];
+    }
+    acc[product.category].push(product);
+    return acc;
+  }, {} as Record<string, Product[]>);
+
+  const handleCategoryChange = (categoryId: string) => {
+    setCurrentCategory(categoryId);
+    const categoryIndex = categories.findIndex((cat) => cat.id === categoryId);
+    if (categoryIndex !== -1 && api) {
+      api.scrollTo(categoryIndex * 3); // Scroll to the start of the category
+    }
+  };
+
   return (
-    <div id={id} className="py-10">
-      {" "}
-      {/* Añadimos el ID aquí */}
-      <h2 className="text-2xl font-bold text-center mb-8">{title}</h2>
-      <Carousel className="w-full max-w-[250px] sm:max-w-[400px] md:max-w-[600px] lg:max-w-[800px] mx-auto relative">
-        <CarouselContent>
+    <div className="py-10 px-4 max-w-[1400px] mx-auto bg-[#b0f5b0] rounded-2xl">
+      <h2 className="text-4xl font-bold text-center mb-2">{title}</h2>
+
+      {/* Category Navigation */}
+      <div className="flex gap-4 mb-12 overflow-x-auto pb-4 justify-center flex-wrap">
+        {categories.map((category) => (
+          <Button
+            key={category.id}
+            onClick={() => handleCategoryChange(category.id)}
+            variant={currentCategory === category.id ? "default" : "outline"}
+            className="whitespace-nowrap rounded-full px-6 py-2 transition-colors text-lg"
+          >
+            {category.name}
+          </Button>
+        ))}
+      </div>
+
+      {/* Products Carousel */}
+      <Carousel
+        setApi={setApi}
+        className="w-full relative"
+        opts={{
+          align: "start",
+          loop: true,
+        }}
+        plugins={[
+          Autoplay({
+            delay: 5000,
+          }),
+        ]}
+      >
+        <CarouselContent className="-ml-2 md:-ml-4">
           {products.map((product) => (
-            <CarouselItem key={product.id}>
-              <Card className="overflow-hidden group relative border rounded-lg">
-                <div className="relative w-full">
-                  {/* Contenedor de imagen y título */}
-                  <div className="relative">
-                    <div className="absolute top-0 left-0 right-0 bg-gradient-to-b from-black/70 to-transparent p-4 z-10">
-                      <h3 className="text-white text-lg sm:text-xl md:text-2xl font-semibold text-center">
-                        {product.title}
-                      </h3>
-                    </div>
-                    <div className="w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[500px] relative">
+            <CarouselItem
+              key={product.id}
+              className="pl-2 md:pl-4 basis-full md:basis-1/3"
+            >
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
+                className="h-full"
+              >
+                <Card className="overflow-hidden group relative border rounded-lg h-full bg-[#4C7C4C]/10">
+                  <div className="relative w-full h-full">
+                    <div className="w-full h-[400px] relative">
                       <Image
                         src={product.imageUrl || "/placeholder.svg"}
                         alt={product.title}
                         fill
                         className="object-cover"
-                        sizes="(max-width: 250px) 100vw, (max-width: 400px) 400px, (max-width: 600px) 600px, 800px"
                       />
                     </div>
+                    <div className="absolute bottom-0 left-0 right-0 bg-lime-400 p-6">
+                      <h3 className="text-2xl font-semibold mb-2 text-[#f7f5ec]">
+                        {product.title}
+                      </h3>
+                      <p className="text-black">{product.description}</p>
+                    </div>
                   </div>
-
-                  {/* Descripción */}
-                  <div
-                    className={`
-                    bg-white p-4 sm:p-6 
-                    sm:absolute sm:bottom-0 sm:left-0 sm:right-0
-                    sm:translate-y-full sm:group-hover:translate-y-0
-                    transition-transform duration-300 ease-in-out
-                  `}
-                  >
-                    <p className="text-sm sm:text-base md:text-lg text-gray-600 text-center">
-                      {product.description}
-                    </p>
-                  </div>
-                </div>
-              </Card>
+                </Card>
+              </motion.div>
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="absolute -left-12 top-1/2 -translate-y-1/2" />
-        <CarouselNext className="absolute -right-12 top-1/2 -translate-y-1/2" />
+        <CarouselPrevious className="absolute -left-12 top-1/2 -translate-y-1/2 hidden md:flex" />
+        <CarouselNext className="absolute -right-12 top-1/2 -translate-y-1/2 hidden md:flex" />
       </Carousel>
     </div>
   );
 };
+
+export default ProductCarousel;

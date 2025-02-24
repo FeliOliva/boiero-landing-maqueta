@@ -1,121 +1,91 @@
 import Link from "next/link";
+import { Instagram, MapPin, Mail, Phone } from "lucide-react";
 
 export const Footer = () => {
-  const navigationItems = [
-    {
-      title: "Home",
-      href: "/",
-      description: "",
-    },
-    {
-      title: "Product",
-      description: "Managing a small business today is already tough.",
-      items: [
-        {
-          title: "Reports",
-          href: "/reports",
-        },
-        {
-          title: "Statistics",
-          href: "/statistics",
-        },
-        {
-          title: "Dashboards",
-          href: "/dashboards",
-        },
-        {
-          title: "Recordings",
-          href: "/recordings",
-        },
-      ],
-    },
-    {
-      title: "Company",
-      description: "Managing a small business today is already tough.",
-      items: [
-        {
-          title: "About us",
-          href: "/about",
-        },
-        {
-          title: "Fundraising",
-          href: "/fundraising",
-        },
-        {
-          title: "Investors",
-          href: "/investors",
-        },
-        {
-          title: "Contact us",
-          href: "/contact",
-        },
-      ],
-    },
-  ];
-
   return (
-    <div
-      className="w-full py-20 lg:py-40 bg-foreground text-background"
-      id="final"
-    >
-      <div className="container mx-auto">
-        <div className="grid lg:grid-cols-2 gap-10 items-center">
-          <div className="flex gap-8 flex-col items-start">
-            <div className="flex gap-2 flex-col">
-              <h2 className="text-3xl md:text-5xl tracking-tighter max-w-xl font-regular text-left">
-                TWBlocks™
-              </h2>
-              <p className="text-lg max-w-lg leading-relaxed tracking-tight text-background/75 text-left">
-                Managing a small business today is already tough.
-              </p>
-            </div>
-            <div className="flex gap-20 flex-row">
-              <div className="flex flex-col text-sm max-w-lg leading-relaxed tracking-tight text-background/75 text-left">
-                <p>1 Tailwind Way</p>
-                <p>Menlo Park</p>
-                <p>CA 94025</p>
+    <footer className="w-full bg-[#233316] rounded-t-[50px] text-white">
+      <div className="w-full px-6 md:px-8 py-12">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col gap-8">
+            {/* Title */}
+            <h2 className="text-4xl font-semibold mb-6">Donde encontrarnos?</h2>
+
+            {/* Contact Information */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Left Column - Address and Map */}
+              <div className="flex flex-col gap-4">
+                <div className="flex items-start gap-2">
+                  <MapPin className="w-5 h-5 mt-1" />
+                  <div>
+                    <p>Ruta nacional 158 km 2</p>
+                    <p>Villa Nueva, Córdoba, Argentina</p>
+                  </div>
+                </div>
+                <Link
+                  href="https://maps.google.com"
+                  target="_blank"
+                  className="text-[#7dd87d] hover:underline inline-flex items-center gap-2"
+                >
+                  Google maps
+                  <span className="text-lg">→</span>
+                </Link>
               </div>
-              <div className="flex flex-col text-sm max-w-lg leading-relaxed tracking-tight text-background/75 text-left">
-                <Link href="/">Terms of service</Link>
-                <Link href="/">Privacy Policy</Link>
-              </div>
-            </div>
-          </div>
-          <div className="grid lg:grid-cols-3 gap-10 items-start">
-            {navigationItems.map((item) => (
-              <div
-                key={item.title}
-                className="flex text-base gap-1 flex-col items-start"
-              >
-                <div className="flex flex-col gap-2">
-                  {item.href ? (
-                    <Link
-                      href={item.href}
-                      className="flex justify-between items-center"
-                    >
-                      <span className="text-xl">{item.title}</span>
-                    </Link>
-                  ) : (
-                    <p className="text-xl">{item.title}</p>
-                  )}
-                  {item.items &&
-                    item.items.map((subItem) => (
-                      <Link
-                        key={subItem.title}
-                        href={subItem.href}
-                        className="flex justify-between items-center"
-                      >
-                        <span className="text-background/75">
-                          {subItem.title}
-                        </span>
-                      </Link>
-                    ))}
+
+              {/* Right Column - Contact Details */}
+              <div className="flex flex-col gap-4">
+                <div className="flex items-center gap-2">
+                  <Phone className="w-5 h-5" />
+                  <a href="tel:+5493536578207" className="hover:text-[#7dd87d]">
+                    +54 9 353 6578-207
+                  </a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Mail className="w-5 h-5" />
+                  <a
+                    href="mailto:boieroagropecuariasas@gmail.com"
+                    className="hover:text-[#7dd87d] break-all"
+                  >
+                    boieroagropecuariasas@gmail.com
+                  </a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Instagram className="w-5 h-5" />
+                  <a
+                    href="https://instagram.com"
+                    target="_blank"
+                    className="hover:text-[#7dd87d]"
+                    rel="noreferrer"
+                  >
+                    Instagram
+                  </a>
                 </div>
               </div>
-            ))}
+            </div>
+
+            {/* Business Hours */}
+            <div className="grid grid-cols-2 gap-4 max-w-xs mt-4">
+              <div>
+                <p className="font-medium">Lunes-Viernes</p>
+                <p className="text-gray-300">9am a 17pm</p>
+              </div>
+              <div>
+                <p className="font-medium">Sábado</p>
+                <p className="text-gray-300">9am a 13pm</p>
+              </div>
+            </div>
+
+            {/* Copyright */}
+            <div className="mt-8 pt-8 border-t border-white/10">
+              <p className="text-sm">
+                <span className="font-medium">boiero agropecuaria sas®</span>
+                <span className="text-gray-400 ml-2">
+                  Todos los derechos reservados - 2025
+                </span>
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };

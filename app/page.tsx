@@ -1,6 +1,5 @@
 import { About } from "@/components/about";
 import { ProductCarousel } from "@/components/product-carousel";
-import { Contact } from "@/components/contact";
 import { Footer } from "@/components/footer";
 import { Hero } from "@/components/hero";
 import { Header } from "@/components/header";
@@ -81,10 +80,9 @@ export default function Home() {
   ];
 
   return (
-    <div className="bg-[#ccfacc]">
+    <div className="bg-[#fffbef]">
       <Header />
       <Hero />
-      <About />
       <div id="products" className="py-10">
         <ProductCarousel
           products={products}
@@ -92,8 +90,14 @@ export default function Home() {
           title="Nuestros productos"
           id="productos"
         />
+        <ProductCarousel
+          products={products}
+          categories={categories}
+          title="Nuestros productos"
+          id="productos"
+        />
       </div>
-      <Contact />
+      <About />
       <Footer />
     </div>
   );

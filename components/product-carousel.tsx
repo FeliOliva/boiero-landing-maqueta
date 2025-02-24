@@ -37,49 +37,65 @@ interface ProductCarouselProps {
 
 export const ProductCarousel = ({
   products,
-  title,
-  id,
   categories,
 }: ProductCarouselProps) => {
   const [api, setApi] = useState<CarouselApi>();
   const [currentCategory, setCurrentCategory] = useState(categories[0]?.id);
 
-  // Group products by category
-  const productsByCategory = products.reduce((acc, product) => {
-    if (!acc[product.category]) {
-      acc[product.category] = [];
-    }
-    acc[product.category].push(product);
-    return acc;
-  }, {} as Record<string, Product[]>);
+  // const productsByCategory = products.reduce((acc, product) => {
+  //   if (!acc[product.category]) {
+  //     acc[product.category] = [];
+  //   }
+  //   acc[product.category].push(product);
+  //   return acc;
+  // }, {} as Record<string, Product[]>);
 
   const handleCategoryChange = (categoryId: string) => {
     setCurrentCategory(categoryId);
     const categoryIndex = categories.findIndex((cat) => cat.id === categoryId);
     if (categoryIndex !== -1 && api) {
-      api.scrollTo(categoryIndex * 3); // Scroll to the start of the category
+      api.scrollTo(categoryIndex * 3);
     }
   };
 
   return (
-    <div className="py-10 px-4 max-w-[1400px] mx-auto bg-[#b0f5b0] rounded-2xl">
-      <h2 className="text-4xl font-bold text-center mb-2">{title}</h2>
-
-      {/* Category Navigation */}
+    <div className="py-10 px-4 max-w-[1400px] mx-auto bg-[#E6F8D8] rounded-2xl">
+      <div className="mb-8 relative">
+        <div className="max-w-[600px]">
+          <h2 className="text-5xl mb-1">
+            <span className="font-dancing-script text-[#4a7c59]">
+              Desarrollo
+            </span>
+            <span className="text-[#2c5530] font-semibold"> que crece</span>
+          </h2>
+          <h2 className="text-4xl text-[#2c5530] font-semibold leading-tight">
+            con tus tierras
+          </h2>
+        </div>
+        <div className="absolute right-0 top-0">
+          <div className="relative">
+            <span className="text-xl text-[#7dd87d]">Nuestros productos</span>
+            <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-[#7dd87d]"></div>
+          </div>
+        </div>
+      </div>
       <div className="flex gap-4 mb-12 overflow-x-auto pb-4 justify-center flex-wrap">
         {categories.map((category) => (
           <Button
             key={category.id}
             onClick={() => handleCategoryChange(category.id)}
             variant={currentCategory === category.id ? "default" : "outline"}
-            className="whitespace-nowrap rounded-full px-6 py-2 transition-colors text-lg"
+            className={`whitespace-nowrap rounded-full px-8 py-6 transition-colors text-lg border-2 
+              ${
+                currentCategory === category.id
+                  ? "bg-[#7dd87d] text-white border-transparent hover:bg-[#6cc76c]"
+                  : "bg-transparent border-[#2c5530] text-[#2c5530] hover:bg-[#f0f7f0]"
+              }`}
           >
             {category.name}
           </Button>
         ))}
       </div>
-
-      {/* Products Carousel */}
       <Carousel
         setApi={setApi}
         className="w-full relative"
@@ -105,9 +121,9 @@ export const ProductCarousel = ({
                 transition={{ duration: 0.5 }}
                 className="h-full"
               >
-                <Card className="overflow-hidden group relative border rounded-lg h-full bg-[#4C7C4C]/10">
+                <Card className="overflow-hidden group relative border-none rounded-2xl h-full bg-[#4C7C4C]">
                   <div className="relative w-full h-full">
-                    <div className="w-full h-[400px] relative">
+                    <div className="w-full h-[300px] relative">
                       <Image
                         src={product.imageUrl || "/placeholder.svg"}
                         alt={product.title}
@@ -115,11 +131,13 @@ export const ProductCarousel = ({
                         className="object-cover"
                       />
                     </div>
-                    <div className="absolute bottom-0 left-0 right-0 bg-lime-400 p-6">
-                      <h3 className="text-2xl font-semibold mb-2 text-[#f7f5ec]">
+                    <div className="p-6 bg-[#4C7C4C]">
+                      <h3 className="text-2xl font-semibold mb-2 text-white">
                         {product.title}
                       </h3>
-                      <p className="text-black">{product.description}</p>
+                      <p className="text-[#e8f3e8] text-sm leading-relaxed">
+                        {product.description}
+                      </p>
                     </div>
                   </div>
                 </Card>

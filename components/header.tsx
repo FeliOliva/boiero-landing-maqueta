@@ -47,11 +47,11 @@ export const Header = () => {
       <div className="container mx-auto min-h-20 flex items-center justify-between px-4">
         <div className="flex items-center w-[140px]">
           <Image
-            src="/logo.jpg"
+            src="/Logo.png"
             alt="Boiero Logo"
-            width={140}
+            width={100}
             height={46}
-            className="h-auto w-[140px]"
+            className="h-auto w-[100px]"
           />
         </div>
 

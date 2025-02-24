@@ -1,49 +1,60 @@
-import { Check } from "lucide-react";
+import Image from "next/image";
 
 export const About = () => (
-  <div className="w-full py-20 lg:py-40" id="about">
+  <div className="w-full py-12" id="about">
     <div className="container mx-auto">
-      <div className="grid border rounded-lg container py-8 grid-cols-1 gap-8 items-center lg:grid-cols-2">
-        <div className="px-6 flex gap-10 flex-col">
-          <div className="flex gap-4 flex-col">
-            <div className="flex gap-2 flex-col">
-              <h2 className="text-3xl lg:text-5xl tracking-tighter max-w-xl text-left font-regular">
-                Un poco sobre nosotros!
-              </h2>
-              <p className="text-lg leading-relaxed tracking-tight text-muted-foreground max-w-xl text-left">
-                Nuestra gran empresa.
-              </p>
-            </div>
-          </div>
-          <div className="grid lg:pl-6 grid-cols-1 sm:grid-cols-3 items-start lg:grid-cols-1 gap-6">
-            <div className="flex flex-row gap-6 items-start">
-              <Check className="w-16 h-16 mt-2 text-primary" />
-              <div className="flex flex-col gap-1">
-                <p>Historia</p>
-                <p className="text-muted-foreground text-sm">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic
-                  quo cum a, sint praesentium maxime sapiente nostrum est optio
-                  nesciunt in nam facere non dolores labore nisi eveniet iste
-                  fugit?.
-                </p>
-              </div>
-            </div>
-            <div className="flex flex-row gap-6 items-start">
-              <Check className="w-16 h-16 mt-2 text-primary" />
-              <div className="flex flex-col gap-1">
-                <p>Algo</p>
-                <p className="text-muted-foreground text-sm">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Suscipit, quod labore? Odit reiciendis, facere quo nostrum
-                  voluptatem eveniet dolorem consequuntur incidunt minus, labore
-                  aliquam tempore nobis minima sequi ducimus error.
-                </p>
-              </div>
-            </div>
+      <div className="grid container grid-cols-1 gap-8 items-start lg:grid-cols-2">
+        {/* Left Column - Image */}
+        <div className="rounded-3xl overflow-hidden max-w-[500px] justify-self-center lg:justify-self-start">
+          <div className="relative w-full aspect-[4/3]">
+            <Image
+              className="object-cover rounded-3xl"
+              src="/imagenEquipo.png"
+              alt="Equipo de trabajo"
+              fill
+              sizes="(max-width: 768px) 100vw, 500px"
+            />
           </div>
         </div>
-        <div className="rounded-md aspect-square px-4">
-          <img className="rounded-3xl" src="/imagen1.jpg" alt="placeholder" />
+
+        {/* Right Column - Content */}
+        <div className="flex gap-4 flex-col">
+          {/* Title Section */}
+          <div className="relative">
+            <span className="text-xl text-[#7dd87d]">Sobre nosotros</span>
+            <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-[#7dd87d]"></div>
+          </div>
+
+          {/* Main Heading */}
+          <h2 className="text-4xl lg:text-5xl font-semibold text-[#2c5530] mt-4">
+            Vamos a <span className="font-dancing-script">conocernos</span>
+          </h2>
+
+          {/* Description */}
+          <p className="text-lg leading-relaxed text-[#4a7c59]">
+            En Boiero Agropecuaria nos especializamos en la producción y venta
+            de cultivos estivales y otoñales durante todo el año. Trabajamos
+            principalmente con proveedores, pero ahora también queremos llegar
+            directamente a vos. Creemos en construir relaciones de confianza, no
+            solo con quienes nos eligen como proveedores, sino también con
+            quienes disfrutan de nuestros productos en su mesa. En Boiero,
+            cultivamos con dedicación y pensamos en el futuro de todos.
+          </p>
+        </div>
+
+        {/* Trayectoria Section - Full Width */}
+        <div className="col-span-1 lg:col-span-2 mt-8">
+          <div className="w-full relative">
+            <div className="relative w-full aspect-[4/1]">
+              <Image
+                src="/trayectoria.png"
+                alt="Trayectoria de la empresa"
+                fill
+                sizes="100vw"
+                className="object-contain"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>

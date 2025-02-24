@@ -9,7 +9,7 @@ export const Hero = () => {
   return (
     <div className="relative w-full h-screen" id="home">
       <Image
-        src="/background.jpg"
+        src="/bg.png"
         alt="Hero background"
         fill
         className="object-cover"

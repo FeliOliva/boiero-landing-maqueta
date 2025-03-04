@@ -14,6 +14,8 @@ export default {
 				"dancing-script": "var(--font-dancing-script)",
 				sans: "var(--font-geist-sans)",
 				mono: "var(--font-geist-mono)",
+				caveat: ["var(--font-caveat)"],
+				poppins: ["var(--font-poppins)"],
 			},
 			colors: {
 				background: "hsl(var(--background))",

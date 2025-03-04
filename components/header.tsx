@@ -5,30 +5,43 @@ import { ChevronDown } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+const navigationItems = [
+  {
+    title: "Inicio",
+    href: "#inicio",
+  },
+  {
+    title: "Productos",
+    href: "#productos",
+    items: [
+      { title: "Productos 1", href: "#productos1" },
+      { title: "Productos 2", href: "#productos2" },
+    ],
+  },
+  {
+    title: "Sobre Nosotros",
+    href: "#about",
+  },
+  {
+    title: "Contacto",
+    href: "#contacto",
+  },
+];
 
 export const Header = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
 
-  const navigationItems = [
-    { title: "Inicio", href: "#home" },
-    {
-      title: "Cultivos",
-      href: "#",
-      items: [
-        { title: "Cultivo 1", href: "#cultivo1" },
-        { title: "Cultivo 2", href: "#cultivo2" },
-      ],
-    },
-    { title: "Sobre nosotros", href: "#about" },
-    { title: "Contacto", href: "#contact" },
-  ];
+  const handleScroll = () => {
+    if (window.scrollY > 0) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+  };
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
-    };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -44,14 +57,14 @@ export const Header = () => {
           : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto min-h-20 flex items-center justify-between px-4">
-        <div className="flex items-center w-[140px]">
+      <div className="container mx-auto min-h-16 lg:min-h-20 flex items-center justify-between px-4">
+        <div className="flex items-center w-[100px] lg:w-[140px]">
           <Image
             src="/Logo.png"
             alt="Boiero Logo"
             width={100}
             height={46}
-            className="h-auto w-[100px]"
+            className="h-auto w-[80px] lg:w-[100px]"
           />
         </div>
 
@@ -80,7 +93,7 @@ export const Header = () => {
                       <a
                         key={subItem.title}
                         href={subItem.href}
-                        className="block px-4 py-2 text-sm text-white hover:bg-white/20 transition-colors"
+                        className="block px-4 py-2 text-sm text-black hover:bg-white/20 transition-colors"
                       >
                         {subItem.title}
                       </a>
@@ -93,12 +106,12 @@ export const Header = () => {
         </nav>
 
         {/* Mobile Menu Button */}
-        <div className="w-[140px] flex justify-end">
+        <div className="w-[100px] lg:w-[140px] flex justify-end">
           <Button
             variant="ghost"
             onClick={() => setOpen(!isOpen)}
-            className={`lg:hidden ${
-              isScrolled ? "text-gray-800" : "text-white"
+            className={`lg:hidden p-1 ${
+              isScrolled ? "text-gray-800" : "text-black"
             }`}
           >
             <svg
@@ -125,27 +138,27 @@ export const Header = () => {
             </svg>
           </Button>
         </div>
-        {/* Mobile Menu */}
+
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="absolute top-full left-0 right-0 bg-white/10 backdrop-blur-md border-t border-white/20 lg:hidden">
+          <div className="absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md border-t border-white/20 lg:hidden">
             <nav className="container mx-auto py-4">
               {navigationItems.map((item) => (
                 <div key={item.title} className="px-4">
                   <a
                     href={item.href}
-                    className="block py-2 text-white hover:text-[#7FFF00] transition-colors"
+                    className="block py-3 text-black text-lg font-medium hover:text-[#7FFF00] transition-colors"
                     onClick={() => setOpen(false)}
                   >
                     {item.title}
                   </a>
                   {item.items && (
-                    <div className="pl-4">
+                    <div className="pl-4 border-l border-gray-200 ml-2">
                       {item.items.map((subItem) => (
                         <a
                           key={subItem.title}
                           href={subItem.href}
-                          className="block py-2 text-white/80 hover:text-[#7FFF00] transition-colors"
+                          className="block py-2 text-gray-600 hover:text-[#7FFF00] transition-colors"
                           onClick={() => setOpen(false)}
                         >
                           {subItem.title}

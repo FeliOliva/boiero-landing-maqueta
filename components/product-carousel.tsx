@@ -42,14 +42,6 @@ export const ProductCarousel = ({
   const [api, setApi] = useState<CarouselApi>();
   const [currentCategory, setCurrentCategory] = useState(categories[0]?.id);
 
-  // const productsByCategory = products.reduce((acc, product) => {
-  //   if (!acc[product.category]) {
-  //     acc[product.category] = [];
-  //   }
-  //   acc[product.category].push(product);
-  //   return acc;
-  // }, {} as Record<string, Product[]>);
-
   const handleCategoryChange = (categoryId: string) => {
     setCurrentCategory(categoryId);
     const categoryIndex = categories.findIndex((cat) => cat.id === categoryId);
@@ -59,33 +51,37 @@ export const ProductCarousel = ({
   };
 
   return (
-    <div className="py-10 px-4 max-w-[1400px] mx-auto bg-[#E6F8D8] rounded-2xl">
-      <div className="mb-8 relative">
+    <div className="py-6 sm:py-10 px-4 mx-4 sm:mx-auto max-w-[1400px]  rounded-xl sm:rounded-2xl">
+      <div className="mb-6 sm:mb-8 relative flex flex-col sm:block">
         <div className="max-w-[600px]">
-          <h2 className="text-5xl mb-1">
-            <span className="font-dancing-script text-[#4a7c59]">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl mb-1">
+            <span className="font-caveat text-[#4a7c59]">
               Desarrollo
             </span>
-            <span className="text-[#2c5530] font-semibold"> que crece</span>
+            <span className="text-[#2c5530] font-poppins"> que crece</span>
           </h2>
-          <h2 className="text-4xl text-[#2c5530] font-semibold leading-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl text-[#2c5530] font-poppins leading-tight">
             con tus tierras
           </h2>
         </div>
-        <div className="absolute right-0 top-0">
+        <div className="relative mt-4 sm:mt-0 sm:absolute sm:right-0 sm:top-0">
           <div className="relative">
-            <span className="text-xl text-[#7dd87d]">Nuestros productos</span>
+            <span className="text-lg font-poppins sm:text-xl text-[#7dd87d]">
+              Nuestros productos
+            </span>
             <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-[#7dd87d]"></div>
           </div>
         </div>
       </div>
-      <div className="flex gap-4 mb-12 overflow-x-auto pb-4 justify-center flex-wrap">
+
+      {/* Categories */}
+      <div className="flex gap-2 sm:gap-4 mb-8 sm:mb-12 overflow-x-auto pb-4 justify-start sm:justify-center flex-nowrap sm:flex-wrap">
         {categories.map((category) => (
           <Button
             key={category.id}
             onClick={() => handleCategoryChange(category.id)}
             variant={currentCategory === category.id ? "default" : "outline"}
-            className={`whitespace-nowrap rounded-full px-8 py-6 transition-colors text-lg border-2 
+            className={`whitespace-nowrap rounded-full px-4 sm:px-8 py-4 sm:py-6 transition-colors text-base sm:text-lg border-2 flex-shrink-0
               ${
                 currentCategory === category.id
                   ? "bg-[#7dd87d] text-white border-transparent hover:bg-[#6cc76c]"
@@ -96,60 +92,62 @@ export const ProductCarousel = ({
           </Button>
         ))}
       </div>
-      <Carousel
-        setApi={setApi}
-        className="w-full relative"
-        opts={{
-          align: "start",
-          loop: true,
-        }}
-        plugins={[
-          Autoplay({
-            delay: 5000,
-          }),
-        ]}
-      >
-        <CarouselContent className="-ml-2 md:-ml-4">
-          {products.map((product) => (
-            <CarouselItem
-              key={product.id}
-              className="pl-2 md:pl-4 basis-full md:basis-1/3"
-            >
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5 }}
-                className="h-full"
+
+      {/* Carousel */}
+      <div className="relative">
+        <Carousel
+          setApi={setApi}
+          className="w-full"
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          plugins={[
+            Autoplay({
+              delay: 5000,
+            }),
+          ]}
+        >
+          <CarouselContent className="-ml-2 md:-ml-4">
+            {products.map((product) => (
+              <CarouselItem
+                key={product.id}
+                className="pl-2 md:pl-4 basis-full sm:basis-1/2 md:basis-1/3"
               >
-                <Card className="overflow-hidden group relative border-none rounded-2xl h-full bg-[#4C7C4C]">
-                  <div className="relative w-full h-full">
-                    <div className="w-full h-[300px] relative">
-                      <Image
-                        src={product.imageUrl || "/placeholder.svg"}
-                        alt={product.title}
-                        fill
-                        className="object-cover"
-                      />
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5 }}
+                  className="h-full"
+                >
+                  <Card className="overflow-hidden group relative border-none rounded-xl sm:rounded-2xl h-full bg-[#4C7C4C]">
+                    <div className="relative w-full h-full">
+                      <div className="w-full h-[200px] sm:h-[250px] md:h-[300px] relative">
+                        <Image
+                          src={product.imageUrl || "/placeholder.svg"}
+                          alt={product.title}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                      <div className="p-4 sm:p-6 bg-[#4C7C4C]">
+                        <h3 className="text-xl sm:text-2xl font-semibold mb-2 text-white">
+                          {product.title}
+                        </h3>
+                        <p className="text-[#e8f3e8] text-sm leading-relaxed line-clamp-3 sm:line-clamp-none">
+                          {product.description}
+                        </p>
+                      </div>
                     </div>
-                    <div className="p-6 bg-[#4C7C4C]">
-                      <h3 className="text-2xl font-semibold mb-2 text-white">
-                        {product.title}
-                      </h3>
-                      <p className="text-[#e8f3e8] text-sm leading-relaxed">
-                        {product.description}
-                      </p>
-                    </div>
-                  </div>
-                </Card>
-              </motion.div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <CarouselPrevious className="absolute -left-12 top-1/2 -translate-y-1/2 hidden md:flex" />
-        <CarouselNext className="absolute -right-12 top-1/2 -translate-y-1/2 hidden md:flex" />
-      </Carousel>
+                  </Card>
+                </motion.div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="absolute -left-4 sm:-left-12 top-1/2 -translate-y-1/2 hidden sm:flex" />
+          <CarouselNext className="absolute -right-4 sm:-right-12 top-1/2 -translate-y-1/2 hidden sm:flex" />
+        </Carousel>
+      </div>
     </div>
   );
 };
-
-export default ProductCarousel;

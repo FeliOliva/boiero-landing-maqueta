@@ -82,23 +82,33 @@ export default function Home() {
   return (
     <div className="bg-[#fffbef]">
       <Header />
-      <Hero />
-      <div id="products" className="py-10">
-        <ProductCarousel
-          products={products}
-          categories={categories}
-          title="Nuestros productos"
-          id="productos"
-        />
-        <ProductCarousel
-          products={products}
-          categories={categories}
-          title="Nuestros productos"
-          id="productos"
-        />
+      <div id="inicio">
+        <Hero />
       </div>
-      <About />
-      <Footer />
+      <div className="bg-[#E6F8D8]">
+        <div id="productos1" className="py-10">
+          <ProductCarousel
+            products={products}
+            categories={categories}
+            title="Nuestros productos"
+            id="productos1"
+          />
+        </div>
+        <div id="productos2" className="py-10">
+          <ProductCarousel
+            products={products}
+            categories={categories}
+            title="Nuestros productos"
+            id="productos2"
+          />
+        </div>
+      </div>
+      <div id="about">
+        <About />
+      </div>
+      <div id="contacto">
+        <Footer />
+      </div>
     </div>
   );
 }

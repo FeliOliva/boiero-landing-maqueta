@@ -47,11 +47,25 @@ export const About = () => (
 
         {/* Trayectoria Section - Full Width */}
         <div className="col-span-1 lg:col-span-2 mt-12 sm:mt-16 mb-16 sm:mb-24">
-          <div className="w-full relative">
-            <div className="relative w-full aspect-[16/5] sm:aspect-[4/1]">
+          {/* Mobile Image (hidden on sm and above) */}
+          <div className="block sm:hidden w-full">
+            <Image
+              src="/timeLineMobile.png"
+              alt="Trayectoria de la empresa - versión móvil"
+              width={500}
+              height={600}
+              layout="responsive"
+              className="w-full"
+              priority
+            />
+          </div>
+
+          {/* Desktop Image (hidden on xs, visible from sm onwards) */}
+          <div className="hidden sm:block w-full">
+            <div className="relative w-full aspect-[4/1]">
               <Image
-                src="/trayectoria.png"
-                alt="Trayectoria de la empresa"
+                src="/timeLineWeb.png"
+                alt="Trayectoria de la empresa - versión escritorio"
                 fill
                 sizes="100vw"
                 className="object-contain"

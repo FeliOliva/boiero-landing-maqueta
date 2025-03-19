@@ -110,12 +110,12 @@ export const Header = () => {
           <Button
             variant="ghost"
             onClick={() => setOpen(!isOpen)}
-            className={`lg:hidden p-1 ${
+            className={`lg:hidden p-2 ${
               isScrolled ? "text-gray-800" : "text-black"
             }`}
           >
             <svg
-              className="w-6 h-6"
+              className="w-8 h-8"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"

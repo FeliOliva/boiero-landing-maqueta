@@ -53,24 +53,22 @@ export const ProductCarousel = ({
   return (
     <div className="py-6 sm:py-10 px-4 mx-4 sm:mx-auto max-w-[1400px]  rounded-xl sm:rounded-2xl">
       <div className="mb-6 sm:mb-8 relative flex flex-col sm:block">
-        <div className="max-w-[600px]">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl mb-1">
-            <span className="font-caveat text-[#4a7c59]">
-              Desarrollo
-            </span>
-            <span className="text-[#2c5530] font-poppins"> que crece</span>
-          </h2>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl text-[#2c5530] font-poppins leading-tight">
-            con tus tierras
-          </h2>
-        </div>
-        <div className="relative mt-4 sm:mt-0 sm:absolute sm:right-0 sm:top-0">
+        <div className="relative mb-4 sm:mt-0 sm:absolute sm:right-0 sm:top-0">
           <div className="relative">
             <span className="text-lg font-poppins sm:text-xl text-[#7dd87d]">
               Nuestros productos
             </span>
             <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-[#7dd87d]"></div>
           </div>
+        </div>
+        <div className="max-w-[600px]">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl mb-1">
+            <span className="font-caveat text-[#4a7c59]">Desarrollo</span>
+            <span className="text-[#2c5530] font-poppins"> que crece</span>
+          </h2>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl text-[#2c5530] font-poppins leading-tight">
+            con tus tierras
+          </h2>
         </div>
       </div>
 

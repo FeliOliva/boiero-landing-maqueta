@@ -3,8 +3,51 @@ import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 export const Hero = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detectar si está en móvil para ajustar scroll
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+
+    // Revisar al cargar y cuando cambia el tamaño
+    checkIsMobile();
+    window.addEventListener("resize", checkIsMobile);
+
+    return () => {
+      window.removeEventListener("resize", checkIsMobile);
+    };
+  }, []);
+
+  // Función de scroll mejorada
+  const scrollToAbout = () => {
+    // Obtener la referencia al elemento about
+    const aboutSection = document.getElementById("about");
+
+    if (aboutSection) {
+      // Usar scrollIntoView con offset ajustado según dispositivo
+      const yOffset = isMobile ? -50 : -100;
+      const y =
+        aboutSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+      window.scrollTo({
+        top: y,
+        behavior: "smooth",
+      });
+    } else {
+      // Fallback al método anterior si no encuentra el ID
+      const scrollPosition = isMobile ? 1800 : 2500;
+      window.scrollTo({
+        top: scrollPosition,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <div className="relative w-full h-screen" id="home">
       <Image
@@ -64,9 +107,7 @@ export const Hero = () => {
             <div className="w-full flex justify-center lg:hidden mt-4">
               <Button
                 size="lg"
-                onClick={() =>
-                  window.scrollTo({ top: 2500, behavior: "smooth" })
-                }
+                onClick={scrollToAbout}
                 className="bg-[#7FFF00] text-black hover:bg-[#7FFF00]/90 text-lg px-6 py-2 rounded-full flex items-center justify-center gap-2 transform hover:scale-105 transition-all max-w-[180px]"
               >
                 Conocenos
@@ -83,9 +124,7 @@ export const Hero = () => {
             >
               <Button
                 size="lg"
-                onClick={() =>
-                  window.scrollTo({ top: 2500, behavior: "smooth" })
-                }
+                onClick={scrollToAbout}
                 className="bg-[#7FFF00] text-black hover:bg-[#7FFF00]/90 text-xl px-10 py-6 rounded-full flex items-center justify-center gap-3 transform hover:scale-105 transition-all"
               >
                 Conocenos

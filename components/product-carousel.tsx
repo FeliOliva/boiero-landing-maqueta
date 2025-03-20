@@ -31,7 +31,7 @@ interface Category {
 interface ProductCarouselProps {
   products: Product[];
   title?: string; // Hacemos que el título sea opcional
-  id: string;
+  id?: string; // Hacemos que id sea opcional para evitar el error si no se usa
   categories: Category[];
   showHeader?: boolean; // Nueva prop para controlar si se muestra el encabezado
 }
@@ -40,7 +40,6 @@ export const ProductCarousel = ({
   products,
   categories,
   title = "Nuestros productos", // Valor por defecto
-  id,
   showHeader = true, // Por defecto mostramos el encabezado
 }: ProductCarouselProps) => {
   const [api, setApi] = useState<CarouselApi>();

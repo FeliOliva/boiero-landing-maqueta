@@ -74,7 +74,7 @@ export const Header = () => {
             {navigationItems.map((item) => (
               <div
                 key={item.title}
-                className="relative"
+                className="relative group"
                 onMouseEnter={() => setActiveDropdown(item.title)}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
@@ -88,7 +88,10 @@ export const Header = () => {
                   {item.items && <ChevronDown className="w-4 h-4" />}
                 </a>
                 {item.items && activeDropdown === item.title && (
-                  <div className="absolute top-full left-0 mt-2 w-48 bg-white/10 backdrop-blur-md border border-white/20 rounded-md shadow-lg py-2">
+                  <div className="absolute top-full left-0 mt-2 w-48 bg-white/10 backdrop-blur-md border border-white/20 rounded-md shadow-lg py-2 z-50">
+                    {/* Agregamos un área invisible que extiende la zona interactiva */}
+                    <div className="absolute inset-0 -top-6 -left-4 -right-4 h-8 bg-transparent"></div>
+
                     {item.items.map((subItem) => (
                       <a
                         key={subItem.title}

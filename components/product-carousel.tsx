@@ -30,14 +30,18 @@ interface Category {
 
 interface ProductCarouselProps {
   products: Product[];
-  title: string;
+  title?: string; // Hacemos que el título sea opcional
   id: string;
   categories: Category[];
+  showHeader?: boolean; // Nueva prop para controlar si se muestra el encabezado
 }
 
 export const ProductCarousel = ({
   products,
   categories,
+  title = "Nuestros productos", // Valor por defecto
+  id,
+  showHeader = true, // Por defecto mostramos el encabezado
 }: ProductCarouselProps) => {
   const [api, setApi] = useState<CarouselApi>();
   const [currentCategory, setCurrentCategory] = useState(categories[0]?.id);
@@ -51,29 +55,32 @@ export const ProductCarousel = ({
   };
 
   return (
-    <div className="py-6 sm:py-10 px-4 mx-4 sm:mx-auto max-w-[1400px]  rounded-xl sm:rounded-2xl">
-      <div className="mb-6 sm:mb-8 relative flex flex-col sm:block">
-        <div className="relative mb-4 sm:mt-0 sm:absolute sm:right-0 sm:top-0">
-          <div className="relative">
-            <span className="text-lg font-poppins sm:text-xl text-[#7dd87d]">
-              Nuestros productos
-            </span>
-            <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-[#7dd87d]"></div>
+    <div className="py-6 sm:py-10 px-4 mx-4 sm:mx-auto max-w-[1400px] rounded-xl sm:rounded-2xl">
+      {/* Mostramos el encabezado solo si showHeader es true */}
+      {showHeader && (
+        <div className="mb-6 sm:mb-8 relative flex flex-col sm:block">
+          <div className="relative mb-4 sm:mt-0 sm:absolute sm:right-0 sm:top-0">
+            <div className="relative">
+              <span className="text-lg font-poppins sm:text-xl text-[#7dd87d]">
+                {title}
+              </span>
+              <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-[#7dd87d]"></div>
+            </div>
+          </div>
+          <div className="max-w-[600px]">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl mb-1">
+              <span className="font-caveat text-[#4a7c59]">Desarrollo</span>
+              <span className="text-[#2c5530] font-poppins"> que crece</span>
+            </h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl text-[#2c5530] font-poppins leading-tight">
+              con tus tierras
+            </h2>
           </div>
         </div>
-        <div className="max-w-[600px]">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl mb-1">
-            <span className="font-caveat text-[#4a7c59]">Desarrollo</span>
-            <span className="text-[#2c5530] font-poppins"> que crece</span>
-          </h2>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl text-[#2c5530] font-poppins leading-tight">
-            con tus tierras
-          </h2>
-        </div>
-      </div>
+      )}
 
       {/* Categories */}
-      <div className="flex gap-2 sm:gap-4 mb-8 sm:mb-12 overflow-x-auto pb-4 justify-start sm:justify-center flex-nowrap sm:flex-wrap">
+      <div className="flex gap-2 sm:gap-4 mb-8 sm:mb-12 overflow-x-auto pb-4 justify-start flex-nowrap">
         {categories.map((category) => (
           <Button
             key={category.id}

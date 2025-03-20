@@ -3,6 +3,7 @@ import { ProductCarousel } from "@/components/product-carousel";
 import { Footer } from "@/components/footer";
 import { Hero } from "@/components/hero";
 import { Header } from "@/components/header";
+
 export default function Home() {
   const categories = [
     { id: "leguminosas", name: "Cultivos otoñales - leguminosas" },
@@ -13,7 +14,6 @@ export default function Home() {
     { id: "estivales", name: "Cultivos estivales" },
     { id: "vendidos2", name: "Más vendidos" },
   ];
-
   const products = [
     {
       id: 1,
@@ -82,31 +82,38 @@ export default function Home() {
       category: "vendidos",
     },
   ];
-
   return (
     <div className="bg-[#fffbef]">
       <Header />
       <div id="inicio">
         <Hero />
       </div>
-      <div className="bg-[#E6F8D8]">
-        <div id="productos1" className="py-10">
-          <ProductCarousel
-            products={products}
-            categories={categories}
-            title="Nuestros productos"
-            id="productos1"
-          />
-        </div>
-        <div id="productos2" className="py-10">
-          <ProductCarousel
-            products={products}
-            categories={categories2}
-            title="Nuestros productos"
-            id="productos2"
-          />
+
+      {/* Contenedor con padding para crear espacio alrededor */}
+      <div className="px-6 py-16 md:px-12 lg:px-20">
+        {/* Contenedor con fondo verde y bordes redondeados */}
+        <div className="bg-[#E6F8D8] rounded-3xl overflow-hidden max-w-7xl mx-auto">
+          <div id="productos1" className="py-10">
+            <ProductCarousel
+              products={products}
+              categories={categories}
+              title="Nuestros productos"
+              id="productos1"
+              showHeader={true}
+            />
+          </div>
+          <div id="productos2" className="py-10">
+            <ProductCarousel
+              products={products}
+              categories={categories2}
+              title="Nuestros productos"
+              id="productos2"
+              showHeader={false}
+            />
+          </div>
         </div>
       </div>
+
       <div id="about">
         <About />
       </div>

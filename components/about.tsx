@@ -1,12 +1,14 @@
 import Image from "next/image";
+
 export const About = () => (
   <div className="w-full pt-8 sm:pt-16 bg-[#f9f5ef]" id="about">
     <div className="container mx-auto px-4">
-      <div className="mb-4">
+      {/* Título para pantallas móviles - visible solo en móviles */}
+      <div className="block lg:hidden mb-4">
         <span className="text-lg sm:text-xl font-poppins text-[#7dd87d]">
           Sobre nosotros
         </span>
-        <div className="w-full h-0.5 bg-[#7dd87d] mt-1"></div>
+        <div className="w-full h-0.5 bg-[#7dd87d] mt-1 mb-4"></div>
       </div>
 
       <div className="grid grid-cols-1 gap-8 lg:gap-12 items-start lg:grid-cols-2">
@@ -26,6 +28,14 @@ export const About = () => (
 
         {/* Right Column - Content */}
         <div className="flex gap-3 sm:gap-4 flex-col px-2">
+          {/* Título solo para pantallas grandes - oculto en móviles */}
+          <div className="hidden lg:block mb-4">
+            <span className="text-lg sm:text-xl font-poppins text-[#7dd87d]">
+              Sobre nosotros
+            </span>
+            <div className="w-full h-0.5 bg-[#7dd87d] mt-1"></div>
+          </div>
+
           {/* Main Heading */}
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold font-poppins text-[#2c5530]">
             Vamos a <span className="font-caveat italic">conocernos</span>

@@ -9,6 +9,10 @@ export default function Home() {
     { id: "gramineas", name: "Cultivos otoñales - gramineas" },
     { id: "vendidos", name: "Más vendidos" },
   ];
+  const categories2 = [
+    { id: "estivales", name: "Cultivos estivales" },
+    { id: "vendidos2", name: "Más vendidos" },
+  ];
 
   const products = [
     {
@@ -97,7 +101,7 @@ export default function Home() {
         <div id="productos2" className="py-10">
           <ProductCarousel
             products={products}
-            categories={categories}
+            categories={categories2}
             title="Nuestros productos"
             id="productos2"
           />

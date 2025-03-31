@@ -52,7 +52,7 @@ export const About = () => {
               <div className="w-full h-0.5 bg-[#7dd87d] mt-1"></div>
             </div>
             {/* Main Heading */}
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold font-poppins text-[#2c5530] lg:text-left sm:text-center ">
+            <h2 className="text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-semibold font-poppins text-[#2c5530] lg:text-left sm:text-center whitespace-nowrap">
               Vamos a <span className="font-caveat italic">conocernos</span>
             </h2>
             {/* Description */}

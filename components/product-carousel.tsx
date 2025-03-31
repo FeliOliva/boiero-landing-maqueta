@@ -216,7 +216,7 @@ export const ProductCarousel = ({
       )}
 
       {/* Categories */}
-      <div className="flex gap-2 sm:gap-4 mb-8 sm:mb-12 overflow-x-auto pb-4 justify-start flex-nowrap pl-12">
+      <div className="flex gap-2 sm:gap-4 mb-8 sm:mb-12 overflow-x-auto pb-4 justify-start flex-nowrap sm:pl-6 lg:pl-12">
         {categories.map((category) => (
           <Button
             key={category.id}
@@ -235,7 +235,7 @@ export const ProductCarousel = ({
       </div>
 
       {/* Carousel */}
-      <div className="relative pl-12">
+      <div className="relative lg:pl-12">
         <Carousel
           setApi={setApi}
           className="w-full"

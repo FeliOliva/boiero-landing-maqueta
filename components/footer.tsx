@@ -3,7 +3,7 @@ import { Instagram, MapPin, Mail, Phone } from "lucide-react";
 
 export const Footer = () => {
   return (
-    <footer className="w-full bg-[#233316] rounded-t-[50px] text-white">
+    <footer className="w-full bg-[#233316] rounded-t-[50px] text-white py-14 px-8">
       <div className="w-full px-4 sm:px-6 md:px-8 py-8 sm:py-12">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col gap-6 sm:gap-8">
@@ -86,12 +86,12 @@ export const Footer = () => {
             </div>
 
             {/* Copyright */}
-            <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-white/10">
-              <p className="text-xs sm:text-sm">
-                <span className="font-medium">boiero agropecuaria sas®</span>
-                <span className="text-gray-400 ml-2">
-                  Todos los derechos reservados - 2025
-                </span>
+            <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-white/10 text-center">
+              <p className="text-[16px] font-semibold font-[Poppins] text-[#85C153]">
+                boiero agropecuaria sas®
+              </p>
+              <p className="text-[10px] font-normal font-[Poppins] text-[#85C153] mt-1">
+                Todos los derechos reservados - 2025
               </p>
             </div>
           </div>

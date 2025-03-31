@@ -1,6 +1,4 @@
 "use client";
-import { ChevronDown } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -25,11 +23,9 @@ export const Hero = () => {
 
   // Función de scroll mejorada
   const scrollToAbout = () => {
-    // Obtener la referencia al elemento about
     const aboutSection = document.getElementById("about");
 
     if (aboutSection) {
-      // Usar scrollIntoView con offset ajustado según dispositivo
       const yOffset = isMobile ? -50 : -100;
       const y =
         aboutSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
@@ -39,7 +35,6 @@ export const Hero = () => {
         behavior: "smooth",
       });
     } else {
-      // Fallback al método anterior si no encuentra el ID
       const scrollPosition = isMobile ? 1800 : 2500;
       window.scrollTo({
         top: scrollPosition,
@@ -51,10 +46,10 @@ export const Hero = () => {
   return (
     <div className="relative w-full h-screen" id="home">
       <Image
-        src="/bg.png"
+        src={isMobile ? "/bgfinalMobile.jpg" : "/bgfinal.jpg"}
         alt="Hero background"
         fill
-        className="object-cover"
+        className="object-cover object-center"
         priority
         quality={100}
       />
@@ -67,16 +62,16 @@ export const Hero = () => {
             transition={{ duration: 1 }}
             className="flex flex-col lg:flex-row lg:justify-between lg:items-end max-w-[1200px] mx-auto gap-8 lg:gap-0"
           >
-            {/* Sección móvil (oculta en pantallas grandes) */}
-            <div className="max-w-[700px] text-left w-full pl-4 lg:hidden">
+            {/* Mobile heading */}
+            <div className="max-w-[700px] text-center w-full pl-4 lg:hidden">
               <h1 className="text-4xl sm:text-5xl font-light text-white leading-tight">
-                <div className="flex items-baseline mb-1">
+                <div className="flex justify-center items-baseline mb-1">
                   <span className="font-caveat mr-2">Cultivando</span>
                   <span className="text-[#7FFF00] font-semibold font-poppins">
                     confianza,
                   </span>
                 </div>
-                <div className="flex items-baseline">
+                <div className="flex justify-center items-baseline">
                   <span className="font-caveat mr-2">Cosechando</span>
                   <span className="text-[#7FFF00] font-semibold font-poppins">
                     futuro
@@ -85,8 +80,8 @@ export const Hero = () => {
               </h1>
             </div>
 
-            {/* Sección desktop (oculta en pantallas pequeñas) */}
-            <div className="max-w-[700px] text-left w-full hidden lg:block">
+            {/* Desktop heading */}
+            <div className="max-w-[700px] text-center w-full hidden lg:block">
               <h1 className="text-6xl lg:text-8xl font-light text-white">
                 <div className="flex flex-row items-baseline gap-4 mb-0">
                   <span className="font-caveat">Cultivando</span>{" "}
@@ -102,36 +97,59 @@ export const Hero = () => {
                 </div>
               </h1>
             </div>
-
-            {/* Botón versión móvil (centrado, oculto en pantallas grandes) */}
+            {/* Mobile button */}
             <div className="w-full flex justify-center lg:hidden mt-4">
-              <Button
-                size="lg"
+              <button
                 onClick={scrollToAbout}
                 className="bg-[#7FFF00] text-black hover:bg-[#7FFF00]/90 text-lg px-6 py-2 rounded-full flex items-center justify-center gap-2 transform hover:scale-105 transition-all max-w-[180px]"
               >
                 Conocenos
-                <ChevronDown className="w-5 h-5" />
-              </Button>
+                <div className="bg-black/10 rounded-full p-1">
+                  <svg
+                    width="24"
+                    height="23"
+                    viewBox="0 0 24 23"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M11.9361 22.8669C18.1289 22.9141 23.1879 17.9315 23.235 11.7387C23.2822 5.54595 18.2996 0.486982 12.1069 0.439845C5.91406 0.392708 0.855095 5.37525 0.807958 11.568C0.760821 17.7608 5.74336 22.8198 11.9361 22.8669ZM6.87172 8.23753L12.0078 13.4524L17.2227 8.31632L18.4334 9.54561L11.9892 15.8924L5.64242 9.44825L6.87172 8.23753Z"
+                      fill="#0F100F"
+                    />
+                  </svg>
+                </div>
+              </button>
             </div>
 
-            {/* Botón versión desktop (original, oculto en pantallas pequeñas) */}
+            {/* Desktop button */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
               className="hidden lg:flex lg:justify-end w-auto"
             >
-              <Button
-                size="lg"
+              <button
                 onClick={scrollToAbout}
-                className="bg-[#7FFF00] text-black hover:bg-[#7FFF00]/90 text-xl px-10 py-6 rounded-full flex items-center justify-center gap-3 transform hover:scale-105 transition-all"
+                className="flex w-[250px] h-[60px] transform rotate-[0.436deg] justify-center items-center gap-[15px] 
+               flex-shrink-0 rounded-[25px] border border-black bg-[#65D71E] 
+               text-[#0F100F] text-[24px] font-poppins font-normal leading-[0px] transition-all hover:scale-105"
               >
                 Conocenos
                 <div className="bg-black/10 rounded-full p-1.5">
-                  <ChevronDown className="w-6 h-6" />
+                  <svg
+                    width="24"
+                    height="23"
+                    viewBox="0 0 24 23"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M11.9361 22.8669C18.1289 22.9141 23.1879 17.9315 23.235 11.7387C23.2822 5.54595 18.2996 0.486982 12.1069 0.439845C5.91406 0.392708 0.855095 5.37525 0.807958 11.568C0.760821 17.7608 5.74336 22.8198 11.9361 22.8669ZM6.87172 8.23753L12.0078 13.4524L17.2227 8.31632L18.4334 9.54561L11.9892 15.8924L5.64242 9.44825L6.87172 8.23753Z"
+                      fill="#0F100F"
+                    />
+                  </svg>
                 </div>
-              </Button>
+              </button>
             </motion.div>
           </motion.div>
         </div>

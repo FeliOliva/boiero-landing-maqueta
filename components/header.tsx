@@ -5,6 +5,7 @@ import { ChevronDown } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+
 const navigationItems = [
   {
     title: "Inicio",
@@ -57,14 +58,14 @@ export const Header = () => {
           : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto min-h-16 lg:min-h-20 flex items-center justify-between px-4">
+      <div className="container mx-auto min-h-16 lg:min-h-20 flex items-center justify-between px-8 pt-8">
         <div className="flex items-center w-[100px] lg:w-[140px]">
           <Image
-            src="/Logo.png"
+            src="/test.png"
             alt="Boiero Logo"
             width={100}
             height={46}
-            className="h-auto w-[80px] lg:w-[100px]"
+            className="h-auto w-[64px] lg:w-[100px]"
           />
         </div>
 
@@ -109,16 +110,16 @@ export const Header = () => {
         </nav>
 
         {/* Mobile Menu Button */}
-        <div className="w-[100px] lg:w-[140px] flex justify-end">
+        <div className="w-[200px] lg:w-[200px] flex justify-end">
           <Button
             variant="ghost"
             onClick={() => setOpen(!isOpen)}
-            className={`lg:hidden p-2 ${
-              isScrolled ? "text-gray-800" : "text-black"
-            }`}
+            className={`lg:hidden p-2 bg-transparent hover:bg-transparent focus:bg-transparent active:bg-transparent ${
+              isOpen ? "bg-black/20" : ""
+            } text-black`}
           >
             <svg
-              className="w-8 h-8"
+              style={{ width: "32px", height: "32px" }} // Ajusta el tamaño manualmente
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -144,7 +145,7 @@ export const Header = () => {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md border-t border-white/20 lg:hidden">
+          <div className="absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md border-t lg:hidden">
             <nav className="container mx-auto py-4">
               {navigationItems.map((item) => (
                 <div key={item.title} className="px-4">

@@ -93,7 +93,7 @@ export default function Home() {
       <div className="px-6 py-16 md:px-12 lg:px-20">
         {/* Contenedor con fondo verde y bordes redondeados */}
         <div className="bg-[#E6F8D8] rounded-3xl overflow-hidden max-w-7xl mx-auto">
-          <div id="productos1" className="py-10">
+          <div id="productos1" className="py-2">
             <ProductCarousel
               products={products}
               categories={categories}
@@ -102,7 +102,7 @@ export default function Home() {
               showHeader={true}
             />
           </div>
-          <div id="productos2" className="py-10">
+          <div id="productos2" className="py-2">
             <ProductCarousel
               products={products}
               categories={categories2}

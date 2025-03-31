@@ -54,24 +54,24 @@ export const ProductCarousel = ({
   };
 
   return (
-    <div className="py-6 sm:py-10 px-4 mx-4 sm:mx-auto max-w-[1400px] rounded-xl sm:rounded-2xl">
+    <div className="py-6 sm:py-10 px-4 mx-4 sm:mx-auto max-w-[1400px] rounded-xl sm:rounded-2xl bg-[#f0f7e8] sm:bg-[#f0f7e8]">
       {showHeader && (
         <div className="mb-6 sm:mb-8 relative flex flex-col sm:flex-row sm:items-center sm:justify-between">
           {/* Title for mobile - stacked layout */}
           <div className="sm:hidden w-full">
             <div className="h-[33px] self-stretch mb-4">
               <span
-                className="text-[#85C153] text-right font-poppins text-base font-semibold leading-7 block w-full"
+                className="text-[#85C153] text-right font-poppins text-xl font-semibold leading-7 block w-full"
                 style={{
                   fontFamily: "Poppins",
-                  fontSize: "16px",
+                  fontSize: "20px",
                   fontWeight: 600,
                   lineHeight: "28px",
                 }}
               >
                 {title}
               </span>
-              <div className="w-full h-0.5 bg-[#85C153] mt-1"></div>
+              {/* Removed the underline div here */}
             </div>
 
             <div className="self-stretch text-center">
@@ -141,80 +141,82 @@ export const ProductCarousel = ({
           </div>
 
           {/* Desktop layout - side by side */}
-          <div className="hidden sm:block">
-            <div className="sm:text-left" style={{ overflowX: "visible" }}>
+          <div className="hidden sm:flex w-full items-center justify-between pl-12">
+            <div className="flex items-center">
+              <div className="sm:text-left" style={{ overflowX: "visible" }}>
+                <span
+                  className="font-caveat text-4xl md:text-5xl font-bold"
+                  style={{
+                    fontFamily: "Caveat",
+                    fontWeight: 700,
+                    lineHeight: "normal",
+                    background:
+                      "linear-gradient(94deg, #85C153 -2.16%, #3F5B27 102.9%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                    display: "inline-block",
+                    wordBreak: "keep-all", // Prevents breaking the word
+                  }}
+                >
+                  Desarrollo&nbsp;
+                </span>
+                <span
+                  className="font-poppins text-3xl md:text-4xl font-semibold"
+                  style={{
+                    fontFamily: "Poppins",
+                    fontWeight: 600,
+                    lineHeight: "normal",
+                    background:
+                      "linear-gradient(94deg, #85C153 -2.16%, #3F5B27 102.9%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                    display: "inline-block",
+                  }}
+                >
+                  {" "}
+                  que crece
+                </span>
+                <div
+                  className="text-2xl sm:text-3xl md:text-4xl font-poppins font-semibold sm:text-left"
+                  style={{
+                    fontFamily: "Poppins",
+                    fontWeight: 600,
+                    lineHeight: "normal",
+                    background:
+                      "linear-gradient(94deg, #85C153 -2.16%, #3F5B27 102.9%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                  }}
+                >
+                  con tus tierras
+                </div>
+              </div>
+            </div>
+
+            {/* Title for desktop on the right */}
+            <div className="h-[33px] self-start">
               <span
-                className="font-caveat text-4xl md:text-5xl font-bold"
-                style={{
-                  fontFamily: "Caveat",
-                  fontWeight: 700,
-                  lineHeight: "normal",
-                  background:
-                    "linear-gradient(94deg, #85C153 -2.16%, #3F5B27 102.9%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                  display: "inline-block",
-                  wordBreak: "keep-all", // Prevents breaking the word
-                }}
-              >
-                Desarrollo&nbsp;
-              </span>
-              <span
-                className="font-poppins text-3xl md:text-4xl font-semibold"
+                className="text-[#85C153] text-right font-poppins text-xl font-semibold leading-7 block w-full"
                 style={{
                   fontFamily: "Poppins",
+                  fontSize: "20px", // Increased from 16px to 20px
                   fontWeight: 600,
-                  lineHeight: "normal",
-                  background:
-                    "linear-gradient(94deg, #85C153 -2.16%, #3F5B27 102.9%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                  display: "inline-block",
+                  lineHeight: "28px",
                 }}
               >
-                {" "}
-                que crece
+                {title}
               </span>
+              {/* Removed the underline div here */}
             </div>
-            <div
-              className="text-2xl sm:text-3xl md:text-4xl font-poppins font-semibold sm:text-left"
-              style={{
-                fontFamily: "Poppins",
-                fontWeight: 600,
-                lineHeight: "normal",
-                background:
-                  "linear-gradient(94deg, #85C153 -2.16%, #3F5B27 102.9%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
-              con tus tierras
-            </div>
-          </div>
-
-          {/* Title for desktop - absolute positioned to the right */}
-          <div className="hidden sm:block h-[33px] self-stretch">
-            <span
-              className="text-[#85C153] text-right font-poppins text-base font-semibold leading-7 block w-full"
-              style={{
-                fontFamily: "Poppins",
-                fontSize: "16px",
-                fontWeight: 600,
-                lineHeight: "28px",
-              }}
-            >
-              {title}
-            </span>
-            <div className="w-full h-0.5 bg-[#85C153] mt-1"></div>
           </div>
         </div>
       )}
 
       {/* Categories */}
-      <div className="flex gap-2 sm:gap-4 mb-8 sm:mb-12 overflow-x-auto pb-4 justify-start flex-nowrap">
+      <div className="flex gap-2 sm:gap-4 mb-8 sm:mb-12 overflow-x-auto pb-4 justify-start flex-nowrap pl-12">
         {categories.map((category) => (
           <Button
             key={category.id}
@@ -233,7 +235,7 @@ export const ProductCarousel = ({
       </div>
 
       {/* Carousel */}
-      <div className="relative">
+      <div className="relative pl-12">
         <Carousel
           setApi={setApi}
           className="w-full"

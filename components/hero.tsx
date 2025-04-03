@@ -46,7 +46,7 @@ export const Hero = () => {
   return (
     <div className="relative w-full h-screen" id="home">
       <Image
-        src={isMobile ? "/bgfinalMobile.jpg" : "/bgfinal.jpg"}
+        src={isMobile ? "/bgfinalMobile.jpg" : "/bgFinaal2.JPG"}
         alt="Hero background"
         fill
         className="object-cover object-center"
@@ -55,53 +55,65 @@ export const Hero = () => {
       />
       <div className="absolute inset-0 bg-black/20" />
       <div className="relative z-10 container mx-auto h-full">
-        <div className="absolute bottom-[20%] left-0 w-full px-4">
+        {/* Título reposicionado más abajo en móvil */}
+        <div className="absolute top-[60%] w-full lg:top-[35%] lg:left-[5%] lg:w-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="flex flex-col lg:flex-row lg:justify-between lg:items-end max-w-[1200px] mx-auto gap-8 lg:gap-0"
+            className="flex flex-col"
           >
-            {/* Mobile heading */}
-            <div className="max-w-[700px] text-center w-full pl-4 lg:hidden">
+            {/* Mobile heading - centrado y bajado */}
+            <div className="lg:hidden px-4 text-center">
               <h1 className="text-4xl sm:text-5xl font-light text-white leading-tight">
                 <div className="flex justify-center items-baseline mb-1">
                   <span className="font-caveat mr-2">Cultivando</span>
-                  <span className="text-[#7FFF00] font-semibold font-poppins">
+                  <span className="text-[#65D71E] font-semibold font-poppins">
                     confianza,
                   </span>
                 </div>
                 <div className="flex justify-center items-baseline">
                   <span className="font-caveat mr-2">Cosechando</span>
-                  <span className="text-[#7FFF00] font-semibold font-poppins">
+                  <span className="text-[#65D71E] font-semibold font-poppins">
                     futuro
                   </span>
                 </div>
               </h1>
             </div>
 
-            {/* Desktop heading */}
-            <div className="max-w-[700px] text-center w-full hidden lg:block">
-              <h1 className="text-6xl lg:text-8xl font-light text-white">
+            {/* Desktop heading - sin cambios */}
+            <div className="hidden lg:block">
+              <h1 className="text-10xl lg:text-8xl font-light text-white">
                 <div className="flex flex-row items-baseline gap-4 mb-0">
                   <span className="font-caveat">Cultivando</span>{" "}
-                  <span className="text-[#7FFF00] font-semibold font-poppins">
+                  <span className="text-[#65D71E] font-semibold font-poppins">
                     confianza,
                   </span>
                 </div>
                 <div className="flex flex-row items-baseline gap-4">
                   <span className="font-caveat">Cosechando</span>{" "}
-                  <span className="text-[#7FFF00] font-semibold font-poppins">
+                  <span className="text-[#65D71E] font-semibold font-poppins">
                     futuro
                   </span>
                 </div>
               </h1>
             </div>
-            {/* Mobile button */}
-            <div className="w-full flex justify-center lg:hidden mt-4">
+          </motion.div>
+        </div>
+
+        {/* Botón Conocenos - reposicionado más abajo siguiendo el título */}
+        <div className="absolute bottom-[12%] lg:bottom-[20%] left-0 w-full px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="flex flex-col lg:flex-row lg:justify-end max-w-[1200px] mx-auto gap-8 lg:gap-0"
+          >
+            {/* Mobile button - centrado y reposicionado */}
+            <div className="w-full flex justify-center lg:hidden mt-6">
               <button
                 onClick={scrollToAbout}
-                className="bg-[#7FFF00] text-black hover:bg-[#7FFF00]/90 text-lg px-6 py-2 rounded-full flex items-center justify-center gap-2 transform hover:scale-105 transition-all max-w-[180px]"
+                className="bg-[#7FFF00] text-black hover:bg-[#7FFF00]/90 text-lg px-8 py-3 rounded-full flex items-center justify-center gap-2 transform hover:scale-105 transition-all max-w-[180px]"
               >
                 Conocenos
                 <div className="bg-black/10 rounded-full p-1">
@@ -121,7 +133,7 @@ export const Hero = () => {
               </button>
             </div>
 
-            {/* Desktop button */}
+            {/* Desktop button - sin cambios */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}

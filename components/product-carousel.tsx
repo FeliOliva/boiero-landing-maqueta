@@ -45,11 +45,16 @@ export const ProductCarousel = ({
   const [api, setApi] = useState<CarouselApi>();
   const [currentCategory, setCurrentCategory] = useState(categories[0]?.id);
 
+  // Filter products based on the current category
+  const filteredProducts = products.filter(
+    (product) => product.category === currentCategory
+  );
+
   const handleCategoryChange = (categoryId: string) => {
     setCurrentCategory(categoryId);
-    const categoryIndex = categories.findIndex((cat) => cat.id === categoryId);
-    if (categoryIndex !== -1 && api) {
-      api.scrollTo(categoryIndex * 3);
+    // Reset carousel position when changing category
+    if (api) {
+      api.scrollTo(0);
     }
   };
 
@@ -250,7 +255,7 @@ export const ProductCarousel = ({
           ]}
         >
           <CarouselContent className="-ml-2 md:-ml-4">
-            {products.map((product) => (
+            {filteredProducts.map((product) => (
               <CarouselItem
                 key={product.id}
                 className="pl-2 md:pl-4 basis-full sm:basis-1/2 md:basis-1/3"

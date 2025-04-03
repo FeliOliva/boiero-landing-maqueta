@@ -59,7 +59,7 @@ export const Header = () => {
       }`}
     >
       <div className="container mx-auto min-h-16 lg:min-h-20 flex items-center justify-between px-8 pt-8">
-        <div className="flex items-center w-[100px] lg:w-[140px]">
+        <div className="flex items-center w-[100px] lg:w-[140px] pb-4">
           <Image
             src="/test.png"
             alt="Boiero Logo"
@@ -69,7 +69,7 @@ export const Header = () => {
           />
         </div>
 
-        {/* Desktop Navigation */}
+        {/* Desktop Navigation - Actualizado según especificaciones */}
         <nav className="hidden lg:flex items-center justify-center flex-1">
           <div className="flex items-center gap-12">
             {navigationItems.map((item) => (
@@ -81,7 +81,7 @@ export const Header = () => {
               >
                 <a
                   href={item.href}
-                  className={`text-lg font-semibold transition-colors flex items-center gap-1 ${
+                  className={`font-poppins text-[20px] font-medium transition-colors flex items-center gap-1 ${
                     isScrolled ? "text-black" : "text-black"
                   } hover:text-[#7FFF00]`}
                 >
@@ -97,7 +97,7 @@ export const Header = () => {
                       <a
                         key={subItem.title}
                         href={subItem.href}
-                        className="block px-4 py-2 text-sm text-black hover:bg-white/20 transition-colors"
+                        className="block px-4 py-2 font-poppins text-[14px] font-medium text-black hover:bg-white/20 transition-colors"
                       >
                         {subItem.title}
                       </a>
@@ -119,7 +119,7 @@ export const Header = () => {
             } text-black`}
           >
             <svg
-              style={{ width: "32px", height: "32px" }} // Ajusta el tamaño manualmente
+              style={{ width: "32px", height: "32px" }}
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -143,7 +143,7 @@ export const Header = () => {
           </Button>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu - Actualizado según especificaciones */}
         {isOpen && (
           <div className="absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md border-t lg:hidden">
             <nav className="container mx-auto py-4">
@@ -151,7 +151,7 @@ export const Header = () => {
                 <div key={item.title} className="px-4">
                   <a
                     href={item.href}
-                    className="block py-3 text-black text-lg font-medium hover:text-[#7FFF00] transition-colors"
+                    className="block py-3 text-black font-poppins text-[15px] font-medium hover:text-[#7FFF00] transition-colors"
                     onClick={() => setOpen(false)}
                   >
                     {item.title}
@@ -162,7 +162,7 @@ export const Header = () => {
                         <a
                           key={subItem.title}
                           href={subItem.href}
-                          className="block py-2 text-gray-600 hover:text-[#7FFF00] transition-colors"
+                          className="block py-2 font-poppins text-[14px] font-medium text-gray-600 hover:text-[#7FFF00] transition-colors"
                           onClick={() => setOpen(false)}
                         >
                           {subItem.title}

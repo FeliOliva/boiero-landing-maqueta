@@ -28,7 +28,7 @@ export const Footer = () => {
                   </div>
                 </div>
                 <Link
-                  href="https://maps.google.com"
+                  href="https://maps.app.goo.gl/7cTcmae14ud1ceED7?g_st=iw"
                   target="_blank"
                   className="text-[#7dd87d] hover:underline inline-flex items-center gap-2 text-sm sm:text-base"
                 >
@@ -60,7 +60,7 @@ export const Footer = () => {
                 <div className="flex items-center gap-2">
                   <Instagram className="w-5 h-5 flex-shrink-0" />
                   <a
-                    href="https://instagram.com"
+                    href="https://www.instagram.com/boieroagropecuaria?igsh=aXE0M2l6cjhoZ2Vq"
                     target="_blank"
                     className="hover:text-[#7dd87d] text-sm sm:text-base"
                     rel="noreferrer"
@@ -77,7 +77,7 @@ export const Footer = () => {
                 <p className="font-medium text-sm sm:text-base">
                   Lunes-Viernes
                 </p>
-                <p className="text-gray-300 text-sm">9am a 17pm</p>
+                <p className="text-gray-300 text-sm">9am a 16pm</p>
               </div>
               <div>
                 <p className="font-medium text-sm sm:text-base">Sábado</p>

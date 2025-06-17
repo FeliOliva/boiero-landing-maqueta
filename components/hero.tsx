@@ -66,34 +66,22 @@ export const Hero = () => {
             {/* Mobile heading - centrado y bajado */}
             <div className="lg:hidden px-4 text-center">
               <h1 className="text-4xl sm:text-5xl font-light text-white leading-tight">
-                <div className="flex justify-center items-baseline mb-1">
-                  <span className="font-caveat mr-2">Cultivando</span>
-                  <span className="text-[#65D71E] font-semibold font-poppins">
-                    confianza,
-                  </span>
-                </div>
-                <div className="flex justify-center items-baseline">
-                  <span className="font-caveat mr-2">Cosechando</span>
-                  <span className="text-[#65D71E] font-semibold font-poppins">
-                    futuro
-                  </span>
-                </div>
+                <span className="font-caveat">Trayectoria en semillas</span>{" "}
+                <span className="text-[#65D71E] font-semibold font-poppins block">
+                  forrajeras y pasturas…
+                </span>
               </h1>
             </div>
 
-            {/* Desktop heading - sin cambios */}
+            {/* Desktop heading */}
             <div className="hidden lg:block">
-              <h1 className="text-10xl lg:text-8xl font-light text-white">
+              <h1 className="text-10xl lg:text-8xl font-light text-white leading-tight">
                 <div className="flex flex-row items-baseline gap-4 mb-0">
-                  <span className="font-caveat">Cultivando</span>{" "}
-                  <span className="text-[#65D71E] font-semibold font-poppins">
-                    confianza,
-                  </span>
+                  <span className="font-caveat">Trayectoria en semillas</span>
                 </div>
                 <div className="flex flex-row items-baseline gap-4">
-                  <span className="font-caveat">Cosechando</span>{" "}
                   <span className="text-[#65D71E] font-semibold font-poppins">
-                    futuro
+                    forrajeras y pasturas…
                   </span>
                 </div>
               </h1>

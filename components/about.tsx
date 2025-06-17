@@ -57,13 +57,13 @@ export const About = () => {
             </h2>
             {/* Description */}
             <p className="text-[12px] sm:text-[14px] font-poppins font-normal leading-[20px] sm:leading-[25px] text-[#0F100F]">
-              En Boiero Agropecuaria nos especializamos en la producción y venta
-              de cultivos estivales y otoñales durante todo el año. Trabajamos
-              principalmente con proveedores, pero ahora también queremos llegar
-              directamente a vos. Creemos en construir relaciones de confianza,
-              no solo con quienes nos eligen como proveedores, sino también con
-              quienes disfrutan de nuestros productos en su mesa. En Boiero,
-              cultivamos con dedicación y pensamos en el futuro de todos 💚🌾
+              En Boiero Agropecuaria nos especializamos en la comercialización
+              de semillas de forrajeras y pasturas, tanto otoñales como
+              estivales. Trabajamos exclusivamente con el sector mayorista.
+              Creemos en construir relaciones de confianza, no solo con quienes
+              nos eligen como proveedores, sino también con quienes siembran el
+              campo. En Boiero, cultivamos con dedicación y pensamos en el
+              futuro. 💚🌾
             </p>
           </div>
           {/* Trayectoria Section - Full Width */}

@@ -174,10 +174,8 @@ export default function Home() {
         <Hero />
       </div>
 
-      {/* Contenedor con padding para crear espacio alrededor */}
       <div className="px-6 py-16 md:px-12 lg:px-20">
-        {/* Contenedor con fondo verde y bordes redondeados */}
-        <div className="bg-[#E6F8D8] rounded-3xl overflow-hidden max-w-7xl mx-auto">
+        <div className="bg-[#E6F8D8] rounded-3xl overflow-hidden max-w-5xl mx-auto">
           <div id="productos1" className="py-2">
             <ProductCarousel
               products={products}
@@ -199,9 +197,12 @@ export default function Home() {
         </div>
       </div>
 
-      <div id="about">
-        <About />
+      <div id="about" className="px-6 py-16 md:px-12 lg:px-20">
+        <div className="bg-[#E6F8D8] rounded-3xl overflow-hidden max-w-5xl mx-auto">
+          <About />
+        </div>
       </div>
+
       <div id="contacto">
         <Footer />
       </div>

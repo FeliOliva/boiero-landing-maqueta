@@ -39,7 +39,6 @@ interface ProductCarouselProps {
 export const ProductCarousel = ({
   products,
   categories,
-  title = "Nuestros productos",
   showHeader = true,
 }: ProductCarouselProps) => {
   const [api, setApi] = useState<CarouselApi>();

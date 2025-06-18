@@ -81,7 +81,7 @@ export const Hero = () => {
                 </div>
                 <div className="flex flex-row items-baseline gap-4">
                   <span className="text-[#65D71E] font-semibold font-poppins">
-                    forrajeras y pasturas…
+                    Forrajeras y Pasturas…
                   </span>
                 </div>
               </h1>

@@ -3,21 +3,6 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export const About = () => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkIsMobile = () => {
-      setIsMobile(window.innerWidth < 640); // Adjust breakpoint as needed
-    };
-
-    checkIsMobile();
-    window.addEventListener("resize", checkIsMobile);
-
-    return () => {
-      window.removeEventListener("resize", checkIsMobile);
-    };
-  }, []);
-
   return (
     <div className="w-full pt-8 sm:pt-16 bg-[#f9f5ef]" id="about">
       <div className="container mx-auto px-8">
@@ -34,7 +19,7 @@ export const About = () => {
             <div className="relative w-full aspect-[16/10]">
               <Image
                 className="object-cover object-center"
-                src={isMobile ? "/empleadoMobile.jpg" : "/empleado.jpg"}
+                src="/nosotros.jpg"
                 alt="Equipo de trabajo"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"

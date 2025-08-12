@@ -21,6 +21,7 @@ interface Product {
   description: string;
   imageUrl: string;
   category: string;
+  densidad?: string;
 }
 
 interface Category {
@@ -144,6 +145,11 @@ export const ProductCarousel = ({
                         <p className="text-[#e8f3e8] text-sm leading-relaxed line-clamp-3 sm:line-clamp-none">
                           {product.description}
                         </p>
+                        {product.densidad && (
+                          <p className="text-[#e8f3e8] text-sm leading-relaxed mt-2 font-semibold">
+                            {product.densidad}
+                          </p>
+                        )}
                       </div>
                     </div>
                   </Card>

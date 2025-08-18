@@ -58,7 +58,7 @@ export const About = () => {
                 Trayectoria
               </h2>
               <Image
-                src="/timelinemobile2.png"
+                src="/mobile.png"
                 alt="Trayectoria de la empresa - versión móvil"
                 width={500}
                 height={600}
@@ -71,7 +71,7 @@ export const About = () => {
             <div className="hidden sm:block w-full">
               <div className="relative w-full aspect-[4/2]">
                 <Image
-                  src="/timelineweb2.png"
+                  src="/web.png"
                   alt="Trayectoria de la empresa - versión escritorio"
                   fill
                   sizes="200vw"

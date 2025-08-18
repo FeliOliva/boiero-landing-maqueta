@@ -15,7 +15,7 @@ export const About = () => {
         <div className="grid grid-cols-1 gap-8 lg:gap-12 items-start lg:grid-cols-2">
           {/* Left Column - Image */}
           <div className="rounded-lg overflow-hidden w-full">
-            <div className="relative w-full aspect-[16/10]">
+            <div className="relative w-full aspect-[16/12]">
               <Image
                 className="object-cover object-center"
                 src="/nosotros.jpg"

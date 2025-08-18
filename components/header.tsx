@@ -15,8 +15,8 @@ const navigationItems = [
     title: "Productos",
     href: "#productos",
     items: [
-      { title: "Productos 1", href: "#productos1" },
-      { title: "Productos 2", href: "#productos2" },
+      { title: "Otoñales", href: "#productos1" },
+      { title: "Estivales", href: "#productos2" },
     ],
   },
   {

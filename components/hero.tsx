@@ -46,10 +46,10 @@ export const Hero = () => {
   return (
     <div className="relative w-full h-screen" id="home">
       <Image
-        src={isMobile ? "/bgfinalmobile.jpg" : "/bgfinaal2.jpg"}
+        src="/bgfinaal2.jpg"
         alt="Hero background"
         fill
-        className="object-cover object-center"
+        className="object-cover lg:object-center md:object-center"
         priority
         quality={100}
       />

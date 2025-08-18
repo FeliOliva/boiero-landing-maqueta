@@ -20,7 +20,7 @@ export default function Home() {
     {
       id: 1,
       title: "Avena blanca",
-      imageUrl: "/cultivos/1-avenablanca.jpg",
+      imageUrl: "/1-avenablanca.jpg",
       category: "otoanales-anuales",
       description: "Forrajera invernal de rápido crecimiento y buena calidad.",
       densidad: "Densidad recomendada: 80 - 110 kg/ha",
@@ -28,7 +28,7 @@ export default function Home() {
     {
       id: 2,
       title: "Avena strigosa",
-      imageUrl: "/cultivos/2-avenastrigosa.jpg",
+      imageUrl: "/2-avenastrigosa.jpg",
       category: "otoanales-anuales",
       description:
         "Muy rústica y adaptable y precoz, ideal para cobertura y pastoreo.",
@@ -37,7 +37,7 @@ export default function Home() {
     {
       id: 3,
       title: "Cebada forrajera",
-      imageUrl: "/cultivos/3-cebadaforrajera.jpg",
+      imageUrl: "/3-cebadaforrajera.jpg",
       category: "otoanales-anuales",
       description:
         "Alta calidad de forraje, rápida implantación. Aptitud silera destacable por su contenido de grano.",
@@ -46,7 +46,7 @@ export default function Home() {
     {
       id: 4,
       title: "Centeno",
-      imageUrl: "/cultivos/4-centeno.jpg",
+      imageUrl: "/4-centeno.jpg",
       category: "otoanales-anuales",
       description: "Rústico. Muy resistente al frío y a suelos pobres.",
       densidad: "Densidad recomendada: 35 - 70 kg/ha",
@@ -54,7 +54,7 @@ export default function Home() {
     {
       id: 5,
       title: "Triticale",
-      imageUrl: "/cultivos/5-triticale.jpg",
+      imageUrl: "/5-triticale.jpg",
       category: "otoanales-anuales",
       description:
         "Muy alta producción y gran rusticidad. Aptitud silera destacable por su volumen.",
@@ -63,7 +63,7 @@ export default function Home() {
     {
       id: 6,
       title: "Ryegrass anual",
-      imageUrl: "/cultivos/6-ryegrassanual.jpg",
+      imageUrl: "/6-ryegrassanual.jpg",
       category: "otoanales-anuales",
       description:
         "Alto valor nutritivo, excelente sanidad de hoja. Adaptado a pastoreo y corte. Se destaca en siembras tempranas.",
@@ -72,7 +72,7 @@ export default function Home() {
     {
       id: 7,
       title: "Vicia villosa",
-      imageUrl: "/cultivos/7-viciavillosa.jpg",
+      imageUrl: "/7-viciavillosa.jpg",
       category: "otoanales-anuales",
       description:
         "Cobertura invernal para control de malezas con excelente fijación de nitrógeno. Es importante inocular.",
@@ -81,7 +81,7 @@ export default function Home() {
     {
       id: 8,
       title: "Vicia sativa",
-      imageUrl: "/cultivos/8-viciasativa.jpg",
+      imageUrl: "/8-viciasativa.jpg",
       category: "otoanales-anuales",
       description:
         "Forrajera de invierno de muy alta calidad. En mezcla con gramíneas se potencia la producción de forraje. Fijadora de N.",
@@ -90,7 +90,7 @@ export default function Home() {
     {
       id: 9,
       title: "Melilotus alba",
-      imageUrl: "/cultivos/9-melilotusalba.jpg",
+      imageUrl: "/9-melilotusalba.jpg",
       category: "otoanales-anuales",
       description:
         "Leguminosa tolerante a suelos alcalinos. Buena fijadora de nitrógeno y alta calidad forrajera.",
@@ -101,7 +101,7 @@ export default function Home() {
     {
       id: 10,
       title: "Agropiro alargado",
-      imageUrl: "/cultivos/10-agropiroalargado.jpg",
+      imageUrl: "/10-agropiroalargado.jpg",
       category: "otoanales-perennes",
       description:
         "Gramínea perenne, muy resistente a sequía y salinidad. Se lleva muy bien consociada con melilotus amarillo.",
@@ -110,7 +110,7 @@ export default function Home() {
     {
       id: 11,
       title: "Festuca alta",
-      imageUrl: "/cultivos/11-festucaalta.jpg",
+      imageUrl: "/11-festucaalta.jpg",
       category: "otoanales-perennes",
       description: "Alta producción de forraje, tolerante al frío.",
       densidad: "Densidad recomendada: 15 - 20 kg/ha",
@@ -118,7 +118,7 @@ export default function Home() {
     {
       id: 12,
       title: "Cebadilla criolla",
-      imageUrl: "/cultivos/12-cebadillacriolla.jpg",
+      imageUrl: "/12-cebadillacriolla.jpg",
       category: "otoanales-perennes",
       description:
         "Adaptable a diversos tipos de suelo. Destaca su gran rusticidad. Muy versátil para consociar.",
@@ -127,7 +127,7 @@ export default function Home() {
     {
       id: 13,
       title: "Melilotus amarillo",
-      imageUrl: "/cultivos/13-melilotusamarillo.jpg",
+      imageUrl: "/13-melilotusamarillo.jpg",
       category: "otoanales-perennes",
       description:
         "Leguminosa bianual, extremadamente tolerante a suelos alcalinos o sueltos. Ideal para consociar con grama rhodes o agropiro.",
@@ -136,7 +136,7 @@ export default function Home() {
     {
       id: 14,
       title: "Trébol blanco",
-      imageUrl: "/cultivos/14-trebolblanco.jpg",
+      imageUrl: "/14-trebolblanco.jpg",
       category: "otoanales-perennes",
       description:
         "Muy palatable y gran fijadora de nitrógeno. Se adapta a suelos muy húmedos con leves problemas de drenaje. Exigente en fertilidad.",
@@ -145,7 +145,7 @@ export default function Home() {
     {
       id: 15,
       title: "Trébol rojo",
-      imageUrl: "/cultivos/15-trebolrojo.jpg",
+      imageUrl: "/15-trebolrojo.jpg",
       category: "otoanales-perennes",
       description:
         "Excelente calidad forrajera. Adaptable a suelos pesados, con deficiencia de fósforo y levemente ácidos.",
@@ -154,7 +154,7 @@ export default function Home() {
     {
       id: 16,
       title: "Lotus",
-      imageUrl: "/cultivos/16-lotus.jpg",
+      imageUrl: "/16-lotus.jpg",
       category: "otoanales-perennes",
       description:
         "Apto para suelos bajos y húmedos, ácidos y pobres en fósforo. Excelente calidad de forraje.",
@@ -163,7 +163,7 @@ export default function Home() {
     {
       id: 17,
       title: "Achicoria forrajera",
-      imageUrl: "/cultivos/17-achicoriaforrajera.jpg",
+      imageUrl: "/17-achicoriaforrajera.jpg",
       category: "otoanales-perennes",
       description: "Perenne, muy palatable y resistente al pastoreo.",
       densidad: "Densidad recomendada: 4 - 6 kg/ha",
@@ -171,7 +171,7 @@ export default function Home() {
     {
       id: 18,
       title: "Alfalfa",
-      imageUrl: "/cultivos/18-alfalfa.jpg",
+      imageUrl: "/18-alfalfa.jpg",
       category: "otoanales-perennes",
       description: "Leguminosa perenne, de alta calidad y persistencia.",
       densidad: "Densidad recomendada: 12 - 20 kg/ha",
@@ -183,7 +183,7 @@ export default function Home() {
     {
       id: 19,
       title: "Moha",
-      imageUrl: "/cultivos/19-moha.jpg",
+      imageUrl: "/19-moha.jpg",
       category: "estivales-anuales",
       description:
         "Ciclo corto, opción preferida para confección de heno. Alta respuesta a fertilización nitrogenada.",
@@ -192,7 +192,7 @@ export default function Home() {
     {
       id: 20,
       title: "Mijo amarillo",
-      imageUrl: "/cultivos/20-mijo.jpg",
+      imageUrl: "/20-mijo.jpg",
       category: "estivales-anuales",
       description:
         "Muy rústico y extremadamente rápido. Apto para corte, pastoreo, cosecha.",
@@ -201,7 +201,7 @@ export default function Home() {
     {
       id: 21,
       title: "Sorgo forrajero",
-      imageUrl: "/cultivos/21-sorgoforrajero.jpg",
+      imageUrl: "/21-sorgoforrajero.jpg",
       category: "estivales-anuales",
       description:
         "Gran producción de forraje para pastoreo directo, destacable velocidad de implantación y rebrote.",
@@ -210,7 +210,7 @@ export default function Home() {
     {
       id: 22,
       title: "Sorgo silero fotosensitivo",
-      imageUrl: "/cultivos/22-sorgosilerofotosensitivo.jpg",
+      imageUrl: "/22-sorgosilerofotosensitivo.jpg",
       category: "estivales-anuales",
       description:
         "Muy alto volumen de materia verde, ideal para ensilar. Azucarado. Ciclo largo con gran ventana para pastoreos.",
@@ -219,7 +219,7 @@ export default function Home() {
     {
       id: 23,
       title: "Sorgo forrajero DP",
-      imageUrl: "/cultivos/23-sorgoforrajeroDP.jpg",
+      imageUrl: "/23-sorgoforrajeroDP.jpg",
       category: "estivales-anuales",
       description:
         "Multipropósito: pastoreo con bajo rebrote, silo de planta entera o cosecha de grano.",
@@ -228,7 +228,7 @@ export default function Home() {
     {
       id: 24,
       title: "Sorgo granífero",
-      imageUrl: "/cultivos/24-sorgogranifero.jpg",
+      imageUrl: "/24-sorgogranifero.jpg",
       category: "estivales-anuales",
       description:
         "Ciclo intermedio para siembras tempranas y tardías. Alto tanino. Uso exclusivo para cosecha de grano.",
@@ -237,7 +237,7 @@ export default function Home() {
     {
       id: 25,
       title: "Sorgo de escoba - Guinea",
-      imageUrl: "/cultivos/25-sorgodeescoba.jpg",
+      imageUrl: "/25-sorgodeescoba.jpg",
       category: "estivales-anuales",
       description:
         "Sorgo para suelos salinos. Uso forrajero con rebrote. Muy utilizado para rolar o incorporar en recuperación de suelos.",
@@ -246,7 +246,7 @@ export default function Home() {
     {
       id: 26,
       title: "Mijo perla - Brasilero",
-      imageUrl: "/cultivos/26-mijoperlabrasilero.jpg",
+      imageUrl: "/26-mijoperlabrasilero.jpg",
       category: "estivales-anuales",
       description:
         "Muy resistente a sequía y baja fertilidad. Gran capacidad de rebrote. Menor velocidad de implantación que los sorgos.",
@@ -255,7 +255,7 @@ export default function Home() {
     {
       id: 27,
       title: "Maíz forrajero DP",
-      imageUrl: "/cultivos/27-maizforrajeroDP.jpg",
+      imageUrl: "/27-maizforrajeroDP.jpg",
       category: "estivales-anuales",
       description:
         "Versátil. Multipropósito. Pastoreo en verde, diferido, silo de planta entera o cosecha. Alta producción de forraje a muy bajo costo.",
@@ -264,7 +264,7 @@ export default function Home() {
     {
       id: 28,
       title: "Grama Rhodes",
-      imageUrl: "/cultivos/28-gramarhodes.jpg",
+      imageUrl: "/28-gramarhodes.jpg",
       category: "estivales-perennes",
       description:
         "Producción concentrada en primavera - verano. Tolerante a suelos salinos. Se puede consociar con melilotus amarillo.",
@@ -273,7 +273,7 @@ export default function Home() {
     {
       id: 29,
       title: "Panicum coloratum",
-      imageUrl: "/cultivos/29-panicumcoloratum.jpg",
+      imageUrl: "/29-panicumcoloratum.jpg",
       category: "estivales-perennes",
       description:
         "Alta producción de forraje en primavera - verano, con excelente calidad y tolerancia al frío.",
@@ -282,7 +282,7 @@ export default function Home() {
     {
       id: 30,
       title: "Gatton panic",
-      imageUrl: "/cultivos/30-gattonpanic.jpg",
+      imageUrl: "/30-gattonpanic.jpg",
       category: "estivales-perennes",
       description:
         "Muy buena calidad forrajera y alta tasa de crecimiento en verano. Baja tolerancia al frío.",
@@ -291,7 +291,7 @@ export default function Home() {
     {
       id: 31,
       title: "Pasto Bermuda",
-      imageUrl: "/cultivos/31-pastobermuda.jpg",
+      imageUrl: "/31-pastobermuda.jpg",
       category: "estivales-perennes",
       description:
         "Resistente al pisoteo y sequía, para uso exclusivo en parquización. Césped denso y altamente perenne.",
